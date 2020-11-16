@@ -1,0 +1,4 @@
+interface IHitReceiver
+{
+    void OnRayHit();
+}

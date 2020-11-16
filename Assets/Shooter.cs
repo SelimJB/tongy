@@ -8,7 +8,6 @@ public class Shooter : MonoBehaviour
 
     Vector3 entryPoint;
     Vector3 exitPoint;
-    Vector3 position;
     Camera mainCamera;
 
     private void Start()
@@ -39,12 +38,25 @@ public class Shooter : MonoBehaviour
 
     void OnShootRelease()
     {
-        lineRenderer.SetPosition(1, origin);
-        Shoot();
+        var impactPoint = -(origin + (exitPoint - entryPoint));
+        Shoot(impactPoint);
+        PlayShootAnimation(impactPoint);
     }
 
-    void Shoot()
+    void PlayShootAnimation(Vector3 impactPoint)
     {
-        Debug.Log("Shoot");
+        lineRenderer.SetPosition(1, origin);
+        Debug.DrawLine(origin, impactPoint, Color.red, 0.1f);
+    }
+
+    void Shoot(Vector3 impactPoint)
+    {
+        var hit = Physics2D.Raycast(origin, impactPoint, Vector3.Distance(origin, impactPoint));
+        if (hit.collider != null)
+        {
+            var hitReceiver = hit.collider.gameObject.GetComponent<IHitReceiver>();
+            if (hitReceiver != null)
+                hitReceiver.OnRayHit();
+        }
     }
 }
