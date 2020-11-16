@@ -3,16 +3,18 @@
 public class Shooter : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
-    [SerializeField] Vector3 origin = Vector2.zero;
-    [SerializeField] float maxLength = 3f;
+    [SerializeField] Vector2 origin = Vector2.zero;
+    [SerializeField] float maxLength = 6f;
 
-    Vector3 entryPoint;
-    Vector3 exitPoint;
+    Vector2 sweepStartPoint;
+    Vector2 sweepEndPoint;
+    Vector2 sweepVector;
     Camera mainCamera;
 
     private void Start()
     {
         mainCamera = Camera.main;
+        lineRenderer.SetPosition(0, origin);
     }
 
     void Update()
@@ -27,18 +29,20 @@ public class Shooter : MonoBehaviour
 
     void OnShootInit()
     {
-        entryPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        sweepStartPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     void OnShootPrep()
     {
-        exitPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        lineRenderer.SetPosition(1, origin + (exitPoint - entryPoint));
+        sweepEndPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        sweepVector = Vector2.ClampMagnitude(sweepEndPoint - sweepStartPoint, maxLength);
+        lineRenderer.SetPosition(1, origin + sweepVector);
+        lineRenderer.endWidth = 1f / (sweepVector.magnitude + 1);
     }
 
     void OnShootRelease()
     {
-        var impactPoint = -(origin + (exitPoint - entryPoint));
+        var impactPoint = origin - sweepVector;
         Shoot(impactPoint);
         PlayShootAnimation(impactPoint);
     }

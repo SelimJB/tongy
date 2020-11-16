@@ -216,6 +216,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shooter
       objectReference: {fileID: 0}
+    - target: {fileID: 9042763558915596589, guid: 0615c10fcaa86b04ea3cbfe111bf64df,
+        type: 3}
+      propertyPath: maxLength
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 9042763558915596590, guid: 0615c10fcaa86b04ea3cbfe111bf64df,
         type: 3}
       propertyPath: m_LocalPosition.x
