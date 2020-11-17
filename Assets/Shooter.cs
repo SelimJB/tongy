@@ -55,12 +55,16 @@ public class Shooter : MonoBehaviour
 
     void Shoot(Vector3 impactPoint)
     {
-        var hit = Physics2D.Raycast(origin, impactPoint, Vector3.Distance(origin, impactPoint));
-        if (hit.collider != null)
+
+        var hits = Physics2D.RaycastAll(origin, impactPoint, Vector3.Distance(origin, impactPoint));
+        foreach (var hit in hits)
         {
-            var hitReceiver = hit.collider.gameObject.GetComponent<IHitReceiver>();
-            if (hitReceiver != null)
-                hitReceiver.OnRayHit();
+            if (hit.collider != null)
+            {
+                var hitReceiver = hit.collider.gameObject.GetComponent<IHitReceiver>();
+                if (hitReceiver != null)
+                    hitReceiver.OnRayHit();
+            }
         }
     }
 }
