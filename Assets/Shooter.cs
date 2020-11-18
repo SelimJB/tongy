@@ -1,23 +1,33 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] LineRenderer lineRenderer;
-    [SerializeField] Vector2 origin = Vector2.zero;
-    [SerializeField] float maxLength = 6f;
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private Vector2 origin = Vector2.zero;
+    [SerializeField] private float maxLength = 6f;
 
-    Vector2 sweepStartPoint;
-    Vector2 sweepEndPoint;
-    Vector2 sweepVector;
-    Camera mainCamera;
+    public event Action<List<Target>> OnHitTargets;
+
+    private Vector2 sweepStartPoint;
+    private Vector2 sweepEndPoint;
+    private Vector2 sweepVector;
+    private Camera mainCamera;
 
     private void Start()
     {
         mainCamera = Camera.main;
         lineRenderer.SetPosition(0, origin);
+        OnHitTargets += HitTargets;
     }
 
-    void Update()
+    private void OnDestroy()
+    {
+        OnHitTargets -= HitTargets;
+    }
+
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
             OnShootInit();
@@ -27,12 +37,12 @@ public class Shooter : MonoBehaviour
             OnShootRelease();
     }
 
-    void OnShootInit()
+    private void OnShootInit()
     {
         sweepStartPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    void OnShootPrep()
+    private void OnShootPrep()
     {
         sweepEndPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         sweepVector = Vector2.ClampMagnitude(sweepEndPoint - sweepStartPoint, maxLength);
@@ -40,31 +50,47 @@ public class Shooter : MonoBehaviour
         lineRenderer.endWidth = 1f / (sweepVector.magnitude + 1);
     }
 
-    void OnShootRelease()
+    private void OnShootRelease()
     {
         var impactPoint = origin - sweepVector;
-        Shoot(impactPoint);
+        var targetsHit = Shoot(impactPoint);
         PlayShootAnimation(impactPoint);
+        if (targetsHit.Count > 0)
+            OnHitTargets?.Invoke(targetsHit);
     }
 
-    void PlayShootAnimation(Vector3 impactPoint)
+    private void PlayShootAnimation(Vector3 impactPoint)
     {
         lineRenderer.SetPosition(1, origin);
         Debug.DrawLine(origin, impactPoint, Color.red, 0.1f);
     }
 
-    void Shoot(Vector3 impactPoint)
+    private List<Target> Shoot(Vector3 impactPoint)
     {
-
         var hits = Physics2D.RaycastAll(origin, impactPoint, Vector3.Distance(origin, impactPoint));
-        foreach (var hit in hits)
+        var targetsHit = new List<Target>();
+        if (hits.Length != 0)
         {
-            if (hit.collider != null)
+            foreach (var hit in hits)
             {
-                var hitReceiver = hit.collider.gameObject.GetComponent<IHitReceiver>();
-                if (hitReceiver != null)
-                    hitReceiver.OnRayHit();
+                if (hit.collider != null)
+                {
+                    var target = hit.collider.gameObject.GetComponent<Target>();
+                    if (target != null)
+                    {
+                        targetsHit.Add(target);
+                    }
+                }
             }
+        }
+        return targetsHit;
+    }
+
+    private void HitTargets(List<Target> targets)
+    {
+        foreach (var target in targets)
+        {
+            target.OnHit();
         }
     }
 }
