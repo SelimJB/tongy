@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] private Text scoreText;
+    [SerializeField] private ScoreView scoreView;
+    [SerializeField] private ScoreGainPopupCreator scoreGainPopupCreator;
 
     private int totalScore = 0;
     private Shooter shooter;
@@ -12,10 +12,10 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         shooter = FindObjectOfType<Shooter>();
-        shooter.OnHitTargets += CalculateScore;
+        shooter.OnHitTargets += ComputeScore;
     }
 
-    private void CalculateScore(List<Target> targetsHit)
+    private void ComputeScore(List<Target> targetsHit)
     {
         var value = 0;
         var multiplier = 0;
@@ -27,17 +27,18 @@ public class ScoreManager : MonoBehaviour
         }
 
         var score = value * multiplier;
-        totalScore += score;
-        RefreshScoreText();
+        ProcessScore(score);
     }
 
-    private void RefreshScoreText()
+    private void ProcessScore(int score)
     {
-        scoreText.text = totalScore.ToString("000,000,000");//, new CultureInfo("es-ES"));
+        scoreGainPopupCreator.Create(score, shooter.Origin, shooter.ImpactPoint);
+        totalScore += score;
+        scoreView.RefreshScoreText(totalScore);
     }
-    
+
     private void OnDestroy()
     {
-        shooter.OnHitTargets -= CalculateScore;
+        shooter.OnHitTargets -= ComputeScore;
     }
 }

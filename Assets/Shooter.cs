@@ -14,6 +14,10 @@ public class Shooter : MonoBehaviour
     private Vector2 sweepEndPoint;
     private Vector2 sweepVector;
     private Camera mainCamera;
+    private Vector2 impactPoint;
+
+    public Vector2 ImpactPoint => impactPoint;
+    public Vector2 Origin => origin;
 
     private void Start()
     {
@@ -52,7 +56,7 @@ public class Shooter : MonoBehaviour
 
     private void OnShootRelease()
     {
-        var impactPoint = origin - sweepVector;
+        impactPoint = origin - sweepVector;
         var targetsHit = Shoot(impactPoint);
         PlayShootAnimation(impactPoint);
         if (targetsHit.Count > 0)
