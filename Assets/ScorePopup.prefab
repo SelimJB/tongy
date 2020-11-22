@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 726876911816487869}
   - component: {fileID: 726876911816487868}
   - component: {fileID: 40043150839896611}
+  - component: {fileID: 1426666678254424449}
   m_Layer: 0
-  m_Name: PopupText
+  m_Name: ScorePopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,13 +88,13 @@ TextMesh:
   m_Anchor: 0
   m_Alignment: 0
   m_TabSize: 4
-  m_FontSize: 30
+  m_FontSize: 35
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 0}
   m_Color:
     serializedVersion: 2
-    rgba: 4280624596
+    rgba: 4281089606
 --- !u!114 &40043150839896611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,3 +108,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 726876911816487868}
+--- !u!111 &1426666678254424449
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726876911816487867}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: ad0523211135f0d4d9998d8c796edf33, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ad0523211135f0d4d9998d8c796edf33, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

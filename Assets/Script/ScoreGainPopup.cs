@@ -4,7 +4,7 @@ public class ScoreGainPopup : MonoBehaviour
 {
     [SerializeField] private TextMesh text;
 
-    private float duration = 2f;
+    private float duration = 1f;
 
     private void Start()
     {
