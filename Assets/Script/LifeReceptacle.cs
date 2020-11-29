@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 public class LifeReceptacle : MonoBehaviour
 {
-    [SerializeField] private Color baseColor;
-    [SerializeField] private Color hitColor;
+    [SerializeField] private Color activeColor;
+    [SerializeField] private Color inertColor;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
     private Collider2D collider;
+    public event Action OnVitalityLoss;
 
     private void Start()
     {
@@ -19,19 +21,14 @@ public class LifeReceptacle : MonoBehaviour
         var target = other.gameObject.GetComponent<Target>();
         if (target != null && target.IsEnemy)
         {
-            Kill();
+            SetInert(true);
+            OnVitalityLoss?.Invoke();
         }
     }
 
-    private void Kill()
+    private void SetInert(bool value)
     {
-        spriteRenderer.color = hitColor;
-        collider.enabled = false;
-    }
-
-    public void Revive()
-    {
-        spriteRenderer.color = baseColor;
-        collider.enabled = true;
+        spriteRenderer.color = value ? inertColor : activeColor;
+        collider.enabled = !value;
     }
 }

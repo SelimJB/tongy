@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2216862004919497045}
   - component: {fileID: 5231306868375273933}
   - component: {fileID: 1120882850268463378}
+  - component: {fileID: 3201861175702025350}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -126,3 +127,17 @@ MonoBehaviour:
   score: 100
   multiplier: 1
   isEnemy: 1
+--- !u!114 &3201861175702025350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900625209783296459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2876f0f0dad92764ca892b7f69f51dfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
+  velocity: 0
