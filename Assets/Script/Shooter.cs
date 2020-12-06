@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField] private LineRenderer lineRenderer;
-    [SerializeField] private Vector2 origin = Vector2.zero;
+    [SerializeField] private Vector2 origin = Vector2.zero; // FIXME : origin = transform position ? 
     [SerializeField] private float maxLength = 6f;
 
     public event Action<List<Target>> OnHitTargets;
@@ -63,16 +63,18 @@ public class Shooter : MonoBehaviour
             OnHitTargets?.Invoke(targetsHit);
     }
 
-    private void PlayShootAnimation(Vector3 impactPoint)
+    private void PlayShootAnimation(Vector2 impactPoint)
     {
         lineRenderer.SetPosition(1, origin);
         Debug.DrawLine(origin, impactPoint, Color.red, 0.1f);
     }
 
-    private List<Target> Shoot(Vector3 impactPoint)
+    private List<Target> Shoot(Vector2 impactPoint)
     {
-        var hits = Physics2D.RaycastAll(origin, impactPoint, Vector3.Distance(origin, impactPoint));
+        var direction = impactPoint - origin;
+        var hits = Physics2D.RaycastAll(origin, direction.normalized, direction.magnitude);
         var targetsHit = new List<Target>();
+
         if (hits.Length != 0)
         {
             foreach (var hit in hits)
@@ -87,6 +89,7 @@ public class Shooter : MonoBehaviour
                 }
             }
         }
+
         return targetsHit;
     }
 

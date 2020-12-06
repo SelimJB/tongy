@@ -484,7 +484,7 @@ PrefabInstance:
     - target: {fileID: 900625209783296459, guid: 804e9aa860f50d249b718d8d055d8204,
         type: 3}
       propertyPath: m_Name
-      value: Target 3
+      value: Enemy 3
       objectReference: {fileID: 0}
     - target: {fileID: 3201861175702025350, guid: 804e9aa860f50d249b718d8d055d8204,
         type: 3}
@@ -578,7 +578,7 @@ PrefabInstance:
     - target: {fileID: 900625209783296459, guid: 804e9aa860f50d249b718d8d055d8204,
         type: 3}
       propertyPath: m_Name
-      value: Target 2
+      value: Enemy 2
       objectReference: {fileID: 0}
     - target: {fileID: 3201861175702025350, guid: 804e9aa860f50d249b718d8d055d8204,
         type: 3}
@@ -834,7 +834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1248159648}
   m_Layer: 0
-  m_Name: Targets
+  m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1101,7 +1101,7 @@ PrefabInstance:
     - target: {fileID: 900625209783296459, guid: 804e9aa860f50d249b718d8d055d8204,
         type: 3}
       propertyPath: m_Name
-      value: Target
+      value: Enemy 1
       objectReference: {fileID: 0}
     - target: {fileID: 3201861175702025350, guid: 804e9aa860f50d249b718d8d055d8204,
         type: 3}
