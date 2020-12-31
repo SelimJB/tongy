@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Trajectory
+namespace Pyoro.Trajectories
 {
     public class MosquitoEllipseSwarmTrajectory : MonoBehaviour
     {

@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SwarmPreset1
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 5792e3d2f4b785c4895e94d1f55a1dff,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: swarmSize
+    value: 10
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: mosquitoPrefab
+    value: 
+    objectReference: {fileID: 8095840470663761729, guid: 68a90c7719c9cce41a717b7cc3c0eae5,
+      type: 3}
+  - target: {fileID: 0}
+    propertyPath: trajectory.destination.x
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.destination.y
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.destination.z
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.speed
+    value: 2.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.vibrationAmplitude
+    value: 1.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.pulsationIntensity
+    value: 0.76
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.pulsationSpeed
+    value: 1.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.perlinSpeed
+    value: 1.1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.perlinAmplitude
+    value: 7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.size
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].time
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].value
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].inSlope
+    value: -0.015725266
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].outSlope
+    value: -0.015725266
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].tangentMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].weightedMode
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].inWeight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].outWeight
+    value: 0.59155965
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].time
+    value: 0.503803
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].value
+    value: 0.004098635
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].inSlope
+    value: 0.014085375
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].outSlope
+    value: -0.016137175
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].tangentMode
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].weightedMode
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].inWeight
+    value: 0.3302175
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].outWeight
+    value: 0.29264942
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].time
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].value
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].inSlope
+    value: 0.027476639
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].outSlope
+    value: 0.027476639
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].tangentMode
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].weightedMode
+    value: 3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].inWeight
+    value: 0.6874951
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].outWeight
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_PreInfinity
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_PostInfinity
+    value: 2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeCurve.m_RotationOrder
+    value: 4
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: trajectory.easeType
+    value: 2
+    objectReference: {fileID: 0}
