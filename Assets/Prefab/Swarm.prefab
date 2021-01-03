@@ -44,16 +44,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swarmSize: 10
+  destination: {x: 0, y: 0, z: 0}
   mosquitoPrefab: {fileID: 8095840470663761729, guid: 68a90c7719c9cce41a717b7cc3c0eae5,
     type: 3}
-  trajectory:
-    destination: {x: 0, y: 0, z: 0}
+  trajectoryParameters:
     speed: 2.5
     vibrationAmplitude: 1.7
-    pulsationIntensity: 0.76
-    pulsationSpeed: 1.5
-    perlinSpeed: 1.1
-    perlinAmplitude: 7
+    pulsationIntensity: 0.8
+    pulsationSpeed: 1.75
+    perlinSpeed: 1.4
+    perlinSpeedVariation: 0.3
+    perlinAmplitude: 6
     easeCurve:
       serializedVersion: 2
       m_Curve:
@@ -84,7 +85,7 @@ MonoBehaviour:
         weightedMode: 3
         inWeight: 0.6874951
         outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
+      m_PreInfinity: 1
+      m_PostInfinity: 1
       m_RotationOrder: 4
     easeType: 2
