@@ -35,154 +35,142 @@ Preset:
     objectReference: {fileID: 8095840470663761729, guid: 68a90c7719c9cce41a717b7cc3c0eae5,
       type: 3}
   - target: {fileID: 0}
-    propertyPath: trajectory.destination.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: trajectory.destination.y
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: trajectory.destination.z
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: trajectory.speed
+    propertyPath: trajectoryParameters.speed
     value: 2.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.vibrationAmplitude
+    propertyPath: trajectoryParameters.vibrationAmplitude
     value: 1.7
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.pulsationIntensity
-    value: 0.76
+    propertyPath: trajectoryParameters.pulsationIntensity
+    value: 0.8
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.pulsationSpeed
-    value: 1.5
+    propertyPath: trajectoryParameters.pulsationSpeed
+    value: 1.75
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.perlinSpeed
-    value: 1.1
+    propertyPath: trajectoryParameters.perlinSpeed
+    value: 1.4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.perlinAmplitude
-    value: 7
+    propertyPath: trajectoryParameters.perlinAmplitude
+    value: 6
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.size
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.size
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].time
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].time
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].value
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].value
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].inSlope
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].inSlope
     value: -0.015725266
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].outSlope
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].outSlope
     value: -0.015725266
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].tangentMode
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].tangentMode
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].weightedMode
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].weightedMode
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].inWeight
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].inWeight
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[0].outWeight
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].outWeight
     value: 0.59155965
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].time
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].time
     value: 0.503803
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].value
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].value
     value: 0.004098635
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].inSlope
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].inSlope
     value: 0.014085375
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].outSlope
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].outSlope
     value: -0.016137175
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].tangentMode
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].tangentMode
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].weightedMode
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].weightedMode
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].inWeight
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].inWeight
     value: 0.3302175
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[1].outWeight
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].outWeight
     value: 0.29264942
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].time
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].time
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].value
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].value
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].inSlope
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].inSlope
     value: 0.027476639
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].outSlope
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].outSlope
     value: 0.027476639
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].tangentMode
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].tangentMode
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].weightedMode
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].weightedMode
     value: 3
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].inWeight
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].inWeight
     value: 0.6874951
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_Curve.Array.data[2].outWeight
+    propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].outWeight
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_PreInfinity
-    value: 2
+    propertyPath: trajectoryParameters.easeCurve.m_PreInfinity
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_PostInfinity
-    value: 2
+    propertyPath: trajectoryParameters.easeCurve.m_PostInfinity
+    value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeCurve.m_RotationOrder
+    propertyPath: trajectoryParameters.easeCurve.m_RotationOrder
     value: 4
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: trajectory.easeType
+    propertyPath: trajectoryParameters.easeType
     value: 2
     objectReference: {fileID: 0}

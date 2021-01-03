@@ -3,9 +3,8 @@ using UnityEngine;
 namespace Pyoro.Trajectories
 {
     [System.Serializable]
-    public class PerlinSwarmTrajectoryParameters
+    public class PerlinTrajectoryParameters
     {
-        [SerializeField] public Vector3 destination;
         [Range(0f, 10f)]
         [SerializeField] public float speed = 5f;
         [Range(0f, 3f)]

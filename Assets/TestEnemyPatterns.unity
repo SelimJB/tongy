@@ -633,6 +633,146 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.speed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.pulsationIntensity
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.pulsationSpeed
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.perlinSpeed
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.perlinAmplitude
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].inSlope
+      value: -0.015725266
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].outSlope
+      value: -0.015725266
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].weightedMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[0].outWeight
+      value: 0.59155965
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].time
+      value: 0.503803
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].value
+      value: 0.004098635
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].inSlope
+      value: 0.014085375
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].outSlope
+      value: -0.016137175
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].tangentMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].weightedMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].inWeight
+      value: 0.3302175
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[1].outWeight
+      value: 0.29264942
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].inSlope
+      value: 0.027476639
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].outSlope
+      value: 0.027476639
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].weightedMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_Curve.Array.data[2].inWeight
+      value: 0.6874951
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_PreInfinity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeCurve.m_PostInfinity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.easeType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8104361917104084157, guid: a43d9bb7e815991448744000ab05b1e8,
         type: 3}
       propertyPath: m_Name
