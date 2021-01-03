@@ -18,7 +18,7 @@ public class ScoreManager : MonoBehaviour
     private void ComputeScore(List<Target> targetsHit)
     {
         var value = 0;
-        var multiplier = 0;
+        var multiplier = 1f;
 
         foreach (var target in targetsHit)
         {
@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
             multiplier += target.ScoreMultiplier;
         }
 
-        var score = value * multiplier;
+        var score = (int)(value * multiplier);
         ProcessScore(score);
     }
 
