@@ -16,6 +16,7 @@ namespace Pyoro.Trajectories
         private float perlinNoiseXSeed;
         private float perlinNoiseYSeed;
         private float magnitudeLimiter = 1f; // Is used when the mosquito has reached his goal, so as not to nomalize mangnitudes which are below 1, so that the attraction effect of the goal is quickly limited
+        private float perlinSpeedVariation;
 
         public void Initialize()
         {
@@ -24,6 +25,7 @@ namespace Pyoro.Trajectories
             vibration = Vector3.zero;
             perlinNoiseXSeed = Random.Range(0f, 10000f);
             perlinNoiseYSeed = Random.Range(0f, 10000f);
+            perlinSpeedVariation = Random.Range(-trajectoryParameters.perlinSpeedVariation, trajectoryParameters.perlinSpeedVariation);
         }
 
         public void UpdatePosition()
@@ -36,8 +38,8 @@ namespace Pyoro.Trajectories
             else if (TrajectoryParameters.easeType == PerlinTrajectoryParameters.EaseType.Curve)
                 pulsation = TrajectoryParameters.easeCurve.Evaluate((Time.fixedTime % TrajectoryParameters.pulsationSpeed) / TrajectoryParameters.pulsationSpeed);
 
-            var perlinTrajectory = (Mathf.PerlinNoise(Time.time * TrajectoryParameters.perlinSpeed + perlinNoiseXSeed, 0) - 0.5f) * TrajectoryParameters.perlinAmplitude * Vector3.up
-                + (Mathf.PerlinNoise(0, Time.time * TrajectoryParameters.perlinSpeed + perlinNoiseYSeed) - 0.5f) * TrajectoryParameters.perlinAmplitude * Vector3.right;
+            var perlinTrajectory = (Mathf.PerlinNoise(Time.time * (TrajectoryParameters.perlinSpeed + perlinSpeedVariation) + perlinNoiseXSeed, 0) - 0.5f) * TrajectoryParameters.perlinAmplitude * Vector3.up
+                + (Mathf.PerlinNoise(0, Time.time * (TrajectoryParameters.perlinSpeed + perlinSpeedVariation) + perlinNoiseYSeed) - 0.5f) * TrajectoryParameters.perlinAmplitude * Vector3.right;
 
             if ((destination - transform.position).magnitude < magnitudeLimiter)
                 magnitudeLimiter = (destination - transform.position).magnitude;

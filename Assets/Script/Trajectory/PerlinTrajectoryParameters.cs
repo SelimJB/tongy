@@ -15,6 +15,8 @@ namespace Pyoro.Trajectories
         [SerializeField] public float pulsationSpeed = 1f;
         [Range(0f, 4f)]
         [SerializeField] public float perlinSpeed = 1f;
+        [Range(0f, 3f)]
+        [SerializeField] public float perlinSpeedVariation = 1f;
         [Range(0f, 20f)]
         [SerializeField] public float perlinAmplitude = 5f;
         [SerializeField] public AnimationCurve easeCurve;

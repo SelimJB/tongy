@@ -773,6 +773,11 @@ PrefabInstance:
       propertyPath: trajectoryParameters.easeType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
+        type: 3}
+      propertyPath: trajectoryParameters.perlinSpeedVariation
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8104361917104084157, guid: a43d9bb7e815991448744000ab05b1e8,
         type: 3}
       propertyPath: m_Name
