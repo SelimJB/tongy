@@ -812,6 +812,51 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1050529408}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1407691366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1407691368}
+  - component: {fileID: 1407691367}
+  m_Layer: 0
+  m_Name: Swarm generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1407691367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407691366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca5311bf03e29e4c98a2c44655ea40e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwarmPrefab: {fileID: 8104361917104084157, guid: a43d9bb7e815991448744000ab05b1e8,
+    type: 3}
+--- !u!4 &1407691368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407691366}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1446929452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3684959321833952531, guid: 874550af05f448f459a040b77d3b4b6c,
@@ -1062,75 +1107,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 874550af05f448f459a040b77d3b4b6c, type: 3}
---- !u!1001 &8104361917425980719
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084155, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8104361917104084157, guid: a43d9bb7e815991448744000ab05b1e8,
-        type: 3}
-      propertyPath: m_Name
-      value: Swarm
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a43d9bb7e815991448744000ab05b1e8, type: 3}
 --- !u!1001 &8234286236010309960
 PrefabInstance:
   m_ObjectHideFlags: 0
