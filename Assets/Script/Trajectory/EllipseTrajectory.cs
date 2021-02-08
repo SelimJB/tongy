@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Pyoro.Trajectories
+namespace Pyoro.Trajectory
 {
     public class EllipseTrajectory : MonoBehaviour, ITrajectory
     {

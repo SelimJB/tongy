@@ -1,4 +1,4 @@
-namespace Pyoro.Trajectories
+namespace Pyoro.Trajectory
 {
     public interface ITrajectory
     {

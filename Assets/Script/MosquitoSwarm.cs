@@ -1,4 +1,4 @@
-﻿using Pyoro.Trajectories;
+﻿using Pyoro.Trajectory;
 using UnityEngine;
 
 public class MosquitoSwarm : MonoBehaviour

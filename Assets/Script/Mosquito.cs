@@ -1,4 +1,4 @@
-using Pyoro.Trajectories;
+using Pyoro.Trajectory;
 using UnityEngine;
 
 public class Mosquito : MonoBehaviour
@@ -16,7 +16,7 @@ public class Mosquito : MonoBehaviour
     {
         PerlinTrajectory,
         EllipseTrajectory,
-        MosquitoTrajectory
+        StraightTrajectory
     }
 
     private void Start()
