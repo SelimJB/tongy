@@ -794,6 +794,11 @@ PrefabInstance:
       propertyPath: activeColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3684959321833952530, guid: 874550af05f448f459a040b77d3b4b6c,
+        type: 3}
+      propertyPath: lifeManager
+      value: 
+      objectReference: {fileID: 504612105}
     - target: {fileID: 3684959321833952531, guid: 874550af05f448f459a040b77d3b4b6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -913,6 +918,11 @@ PrefabInstance:
       propertyPath: activeColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3684959321833952530, guid: 874550af05f448f459a040b77d3b4b6c,
+        type: 3}
+      propertyPath: lifeManager
+      value: 
+      objectReference: {fileID: 504612105}
     - target: {fileID: 3684959321833952531, guid: 874550af05f448f459a040b77d3b4b6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1091,8 +1101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca5311bf03e29e4c98a2c44655ea40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwarmPrefab: {fileID: 8104361917104084157, guid: a43d9bb7e815991448744000ab05b1e8,
+  swarmPrefab: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
     type: 3}
+  lifeManager: {fileID: 504612105}
 --- !u!4 &1407691368
 Transform:
   m_ObjectHideFlags: 0
@@ -1233,6 +1244,11 @@ PrefabInstance:
       propertyPath: activeColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3684959321833952530, guid: 874550af05f448f459a040b77d3b4b6c,
+        type: 3}
+      propertyPath: lifeManager
+      value: 
+      objectReference: {fileID: 504612105}
     - target: {fileID: 3684959321833952531, guid: 874550af05f448f459a040b77d3b4b6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1674,6 +1690,11 @@ PrefabInstance:
       propertyPath: activeColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3684959321833952530, guid: 874550af05f448f459a040b77d3b4b6c,
+        type: 3}
+      propertyPath: lifeManager
+      value: 
+      objectReference: {fileID: 504612105}
     - target: {fileID: 3684959321833952531, guid: 874550af05f448f459a040b77d3b4b6c,
         type: 3}
       propertyPath: m_LocalPosition.x

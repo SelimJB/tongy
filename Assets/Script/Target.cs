@@ -15,6 +15,6 @@ public class Target : MonoBehaviour
     public virtual void OnHit()
     {
         // sprite.color = hitColor;
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }

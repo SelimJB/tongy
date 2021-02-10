@@ -2,12 +2,10 @@ using UnityEngine;
 
 namespace Pyoro.Trajectory
 {
-    public class PerlinTrajectory : MonoBehaviour, ITrajectory
+    public class PerlinTrajectory : Trajectory
     {
-        [SerializeField] public Vector3 destination;
         [SerializeField] public PerlinTrajectoryParameters trajectoryParameters;
 
-        public Vector3 Destination { get { return destination; } set { destination = value; } }
         public PerlinTrajectoryParameters TrajectoryParameters { get { return trajectoryParameters; } set { trajectoryParameters = value; } }
 
         private Vector3 initialPosition;
@@ -18,8 +16,9 @@ namespace Pyoro.Trajectory
         private float magnitudeLimiter = 1f; // Is used when the mosquito has reached his goal, so as not to nomalize mangnitudes which are below 1, so that the attraction effect of the goal is quickly limited
         private float perlinSpeedVariation;
 
-        public void Initialize()
+        public override void Initialize(Vector3 destination)
         {
+            this.destination = destination;
             initialPosition = transform.position;
             progressionTrajectory = transform.position;
             vibration = Vector3.zero;
@@ -28,7 +27,7 @@ namespace Pyoro.Trajectory
             perlinSpeedVariation = Random.Range(-trajectoryParameters.perlinSpeedVariation, trajectoryParameters.perlinSpeedVariation);
         }
 
-        public void UpdatePosition()
+        public override void UpdatePosition()
         {
             float pulsation = 0;
             if (TrajectoryParameters.easeType == PerlinTrajectoryParameters.EaseType.Cosinus)
@@ -51,7 +50,7 @@ namespace Pyoro.Trajectory
             transform.position = progressionTrajectory + perlinTrajectory * (pulsation * TrajectoryParameters.pulsationIntensity + (1 - TrajectoryParameters.pulsationIntensity)) + vibration;
         }
 
-        public void ResetPosition()
+        public override void ResetPosition()
         {
             transform.position = initialPosition;
             progressionTrajectory = initialPosition;
@@ -69,6 +68,12 @@ namespace Pyoro.Trajectory
                 return EaseIn(remainder / (pulsationSpeed / 2f));
             else
                 return EaseOut(remainder / (pulsationSpeed / 2f));
+        }
+
+        public override void ChangeDestination(Vector3 destination)
+        {
+            base.ChangeDestination(destination);
+            magnitudeLimiter = 1;
         }
     }
 }

@@ -3,20 +3,33 @@ using UnityEngine;
 
 public class MosquitoSwarm : MonoBehaviour
 {
-    [SerializeField] int swarmSize = 10;
-    [SerializeField] Vector3 destination;
-    [SerializeField] Mosquito mosquitoPrefab;
-    [SerializeField] PerlinTrajectoryParameters trajectoryParameters;
+	[SerializeField] int swarmSize = 10;
+	[SerializeField] Mosquito mosquitoPrefab;
+	[SerializeField] PerlinTrajectoryParameters trajectoryParameters;
+	public LifeManager LifeManager { get; set; }
 
-    void Start()
-    {
-        for (int i = 0; i < swarmSize; i++)
-        {
-            var enemy = Instantiate(mosquitoPrefab);
-            enemy.PerlinTrajectory.TrajectoryParameters = trajectoryParameters;
-            enemy.PerlinTrajectory.Destination = destination;
-            enemy.transform.position = transform.position;
-            enemy.transform.parent = transform;
-        }
-    }
+	void Start()
+	{
+		if (LifeManager == null)
+			LifeManager = FindObjectOfType<LifeManager>();
+
+		CreateMosquitoSwarm();
+	}
+
+	// TODO : moove into factory
+	private void CreateMosquitoSwarm()
+	{
+		var lifeReceptacle = LifeManager.FindNearestActiveLifeReceptacle(transform.position);
+		if (lifeReceptacle == null)
+			Debug.LogWarning("There is no life receptacle");
+
+		for (var i = 0; i < swarmSize; i++)
+		{
+			var mosquito = Instantiate(mosquitoPrefab, transform, true);
+			var perlinTrajectory = mosquito.GetComponent<PerlinTrajectory>();
+			perlinTrajectory.TrajectoryParameters = trajectoryParameters;
+			mosquito.LifeReceptacle = lifeReceptacle;
+			mosquito.transform.position = transform.position;
+		}
+	}
 }

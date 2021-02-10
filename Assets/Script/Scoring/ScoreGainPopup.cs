@@ -10,7 +10,7 @@ namespace Pyoro.Scoring
 
         private void Start()
         {
-            Destroy(this.gameObject, duration);
+            Destroy(gameObject, duration);
         }
 
         public void Initialize(int score, Vector2 position)

@@ -2,9 +2,8 @@ using UnityEngine;
 
 namespace Pyoro.Trajectory
 {
-    public class MosquitoTrajectory : MonoBehaviour, ITrajectory
+    public class StraightTrajectory : Trajectory
     {
-        [SerializeField] Vector3 destination;
         [Range(0f, 10f)]
         [SerializeField] float speed = 3.5f;
         [Range(0f, 10f)]
@@ -12,17 +11,18 @@ namespace Pyoro.Trajectory
 
         private Vector3 initialPosition;
 
-        public void Initialize()
+        public override void Initialize(Vector3 destination)
         {
             initialPosition = transform.position;
+            this.destination = destination;
         }
 
-        public void ResetPosition()
+        public override  void ResetPosition()
         {
             transform.position = initialPosition;
         }
 
-        public void UpdatePosition()
+        public override  void UpdatePosition()
         {
             transform.position += (Vector3)Random.insideUnitCircle * Time.deltaTime * vibrationAmplitude
                 + (destination - transform.position).normalized * Time.deltaTime * speed;

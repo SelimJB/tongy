@@ -1,38 +1,17 @@
 using Pyoro.Trajectory;
-using UnityEngine;
 
-public class Mosquito : MonoBehaviour
+public class Mosquito : Enemy
 {
-    [SerializeField] public TrajectoryType trajectoryType;
-    [SerializeField] private PerlinTrajectory perlinTrajectory;
-    [SerializeField] private EllipseTrajectory ellipseTrajectory;
-    [SerializeField] private MosquitoTrajectory mosquitoTrajectory;
+	protected override void Start()
+	{
+		base.Start();
 
-    public PerlinTrajectory PerlinTrajectory { get { return perlinTrajectory; } }
+		trajectory = GetComponent<Trajectory>();
+		trajectory.Initialize(Destination);
+	}
 
-    private ITrajectory trajectory;
-
-    public enum TrajectoryType
-    {
-        PerlinTrajectory,
-        EllipseTrajectory,
-        StraightTrajectory
-    }
-
-    private void Start()
-    {
-        if (trajectoryType == TrajectoryType.EllipseTrajectory)
-            trajectory = ellipseTrajectory;
-        else if (trajectoryType == TrajectoryType.PerlinTrajectory)
-            trajectory = perlinTrajectory;
-        else
-            trajectory = mosquitoTrajectory;
-
-        trajectory.Initialize();
-    }
-
-    private void Update()
-    {
-        trajectory.UpdatePosition();
-    }
+	private void Update()
+	{
+		trajectory.UpdatePosition();
+	}
 }

@@ -2,9 +2,8 @@ using UnityEngine;
 
 namespace Pyoro.Trajectory
 {
-    public class EllipseTrajectory : MonoBehaviour, ITrajectory
+    public class EllipseTrajectory : Trajectory
     {
-        [SerializeField] Vector3 destination;
         [SerializeField] float speed = 0f;
         [SerializeField] float vibrationAmplitude = 3f;
         [SerializeField] float minEllipseSize = 0.5f;
@@ -18,8 +17,9 @@ namespace Pyoro.Trajectory
         Vector3 progressionTrajectory;
 
 
-        public void Initialize()
+        public override void Initialize(Vector3 destination)
         {
+            this.destination = destination;
             progressionTrajectory = transform.position;
 
             var ellipseAxesLengthsSum = Random.Range(1f, maxEllipseAxisLength + 1f);
@@ -30,12 +30,12 @@ namespace Pyoro.Trajectory
             ellipseRotation = Random.Range(0f, 90f);
         }
 
-        public void ResetPosition()
+        public override void ResetPosition()
         {
             throw new System.NotImplementedException();
         }
 
-        public void UpdatePosition()
+        public override void UpdatePosition()
         {
             // FIXME : replace cos by the same "Pulsation" that we have in the perlin swarm trajectory (add pulsation speed, and pulsation intensity); add the magnitude limiter
             var ellipseTrajectory = Quaternion.Euler(0, 0, ellipseRotation)
