@@ -4,7 +4,7 @@ using UnityEngine;
 public class MosquitoSwarm : MonoBehaviour
 {
 	[SerializeField] int swarmSize = 10;
-	[SerializeField] Mosquito mosquitoPrefab;
+	[SerializeField] Enemy mosquitoPrefab;
 	[SerializeField] PerlinTrajectoryParameters trajectoryParameters;
 	public LifeManager LifeManager { get; set; }
 

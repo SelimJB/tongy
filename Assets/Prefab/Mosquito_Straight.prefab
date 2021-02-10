@@ -157,7 +157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8095840470663761728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e94876e1915e711498e0287b61755f73, type: 3}
+  m_Script: {fileID: 11500000, guid: 70f6d7eb6a1548b99743806a5c0d8a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-8354020039737503945
@@ -172,6 +172,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211053f3e30156144bef687fedce1545, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {x: 0, y: 0, z: 0}
   speed: 3.5
   vibrationAmplitude: 3

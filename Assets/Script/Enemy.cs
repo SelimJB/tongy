@@ -1,7 +1,7 @@
 ﻿using Pyoro.Trajectory;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
 	private LifeReceptacle lifeReceptacle;
 	protected Trajectory trajectory;
@@ -13,6 +13,14 @@ public abstract class Enemy : MonoBehaviour
 	{
 		if (lifeReceptacle != null)
 			lifeReceptacle.OnDie += ChangeCible;
+
+		trajectory = GetComponent<Trajectory>();
+		trajectory.Initialize(Destination);
+	}
+
+	protected virtual void Update()
+	{
+		trajectory.UpdatePosition();
 	}
 
 	private void ChangeCible()
