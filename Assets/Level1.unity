@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 403296569}
   - component: {fileID: 403296568}
   - component: {fileID: 403296567}
+  - component: {fileID: 403296571}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -487,6 +488,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &403296571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403296566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90c4b96c318a6294eaece3315a20b197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goBackToTitleScreeButton: {fileID: 1612486528}
+  restartButton: {fileID: 1879207889}
+  lifeManager: {fileID: 504612105}
+  gameoverMenu: {fileID: 735581800}
 --- !u!1 &504612104
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,7 +653,6 @@ GameObject:
   - component: {fileID: 735581801}
   - component: {fileID: 735581803}
   - component: {fileID: 735581802}
-  - component: {fileID: 735581804}
   m_Layer: 5
   m_Name: GameOverMenu
   m_TagString: Untagged
@@ -704,20 +720,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735581800}
   m_CullTransparentMesh: 0
---- !u!114 &735581804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735581800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90c4b96c318a6294eaece3315a20b197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goBackToTitleScreeButton: {fileID: 1612486528}
-  restartButton: {fileID: 1879207889}
 --- !u!1 &903775263
 GameObject:
   m_ObjectHideFlags: 0
