@@ -16,7 +16,7 @@ public class SwarmGenerator : MonoBehaviour
 		var pos = new Vector2(Random.Range(0f, 1f) > 0.5f ? -22 : 22, Random.Range(-15f, 15f));
 		var mosquitoSwarm = Instantiate(swarmPrefab, pos, Quaternion.identity);
 		mosquitoSwarm.LifeManager = lifeManager;
-		yield return new WaitForSeconds(15f);
+		yield return new WaitForSeconds(10f);
 		yield return GenerateSwarm();
 	}
 }

@@ -43,8 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5792e3d2f4b785c4895e94d1f55a1dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swarmSize: 3
-  destination: {x: 0, y: 0, z: 0}
+  swarmSize: 10
   mosquitoPrefab: {fileID: 8095840470663761729, guid: 87eaf550a4b80774088ea646e7aa54cf,
     type: 3}
   trajectoryParameters:

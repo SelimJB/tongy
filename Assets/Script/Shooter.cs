@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ public class Shooter : MonoBehaviour
     private Camera mainCamera;
     private Vector2 impactPoint;
 
+    private Color lineRendererColor;
     public Vector2 ImpactPoint => impactPoint;
     public Vector2 Origin => origin;
 
@@ -24,6 +26,7 @@ public class Shooter : MonoBehaviour
         mainCamera = Camera.main;
         lineRenderer.SetPosition(0, origin);
         OnHitTargets += HitTargets;
+        lineRendererColor = lineRenderer.startColor;
     }
 
     private void OnDestroy()
@@ -58,17 +61,22 @@ public class Shooter : MonoBehaviour
     {
         impactPoint = origin - sweepVector;
         var targetsHit = Shoot(impactPoint);
-        PlayShootAnimation(impactPoint);
+        StartCoroutine(PlayShootAnimation(impactPoint));
         if (targetsHit.Count > 0)
             OnHitTargets?.Invoke(targetsHit);
     }
 
-    private void PlayShootAnimation(Vector2 impactPoint)
+    IEnumerator PlayShootAnimation(Vector3 impactPoint)
     {
+        lineRenderer.SetPosition(1, impactPoint);
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endColor = lineRenderer.startColor = Color.magenta;
+        yield return new WaitForSeconds(0.1f);
+        lineRenderer.endColor = lineRenderer.startColor = lineRendererColor;
+        lineRenderer.startWidth = 1f;
+        lineRenderer.widthCurve.keys[0].value = 1f;
         lineRenderer.SetPosition(1, origin);
-        Debug.DrawLine(origin, impactPoint, Color.red, 0.1f);
-    }
-
+    } 
     private List<Target> Shoot(Vector2 impactPoint)
     {
         var direction = impactPoint - origin;
