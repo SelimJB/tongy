@@ -47,11 +47,11 @@ MonoBehaviour:
   mosquitoPrefab: {fileID: 8095840470663761729, guid: 87eaf550a4b80774088ea646e7aa54cf,
     type: 3}
   trajectoryParameters:
-    speed: 2
+    speed: 1
     vibrationAmplitude: 1.7
     pulsationIntensity: 0.8
-    pulsationSpeed: 1.75
-    perlinSpeed: 1.4
+    pulsationSpeed: 2.5
+    perlinSpeed: 1.06
     perlinSpeedVariation: 0.3
     perlinAmplitude: 6
     easeCurve:

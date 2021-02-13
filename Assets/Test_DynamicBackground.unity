@@ -198,6 +198,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1365537715}
+    - target: {fileID: 8234286235035473736, guid: 595a6e60a7fa9ba4bb085fb7b95be494,
+        type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 1267682430}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 595a6e60a7fa9ba4bb085fb7b95be494, type: 3}
 --- !u!1 &899400015
@@ -464,8 +469,10 @@ MonoBehaviour:
   backgroundEvents:
   - backgroundEvent: {fileID: 11400000, guid: bdd1033a34ba2ff48a9db829e042d40f, type: 2}
     scoreThreshold: 1000
+    isLaunched: 0
   - backgroundEvent: {fileID: 11400000, guid: f4b95e8bffe7b514d95276f522d6190c, type: 2}
     scoreThreshold: 3000
+    isLaunched: 0
   scoreManager: {fileID: 1267682430}
 --- !u!4 &1591684564
 Transform:
