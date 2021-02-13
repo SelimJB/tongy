@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,16 +6,19 @@ namespace Pyoro.Scoring
 {
     public class ScoreManager : MonoBehaviour
     {
-        [SerializeField] private ScoreView scoreView;
-        [SerializeField] private ScoreGainPopupCreator scoreGainPopupCreator;
-
+        public Action<int> OnScoreIncr;
+        public Action<int, Vector3> OnShootScoreIncr;
+        
         private int totalScore = 0;
         private Shooter shooter;
 
         private void Start()
         {
             shooter = FindObjectOfType<Shooter>();
-            shooter.OnHitTargets += ComputeScore;
+            if (shooter != null)
+                shooter.OnHitTargets += ComputeScore;
+            else
+                Debug.LogWarning("No shooter in the scene");
         }
 
         private void ComputeScore(List<Target> targetsHit)
@@ -29,14 +33,14 @@ namespace Pyoro.Scoring
             }
 
             var score = (int)(value * multiplier);
-            ProcessScore(score);
+            OnShootScoreIncr?.Invoke(score, shooter.ImpactPoint);
+            IncreaseScore(score);
         }
 
-        private void ProcessScore(int score)
+        public void IncreaseScore(int score)
         {
-            scoreGainPopupCreator.Create(score, shooter.Origin, shooter.ImpactPoint);
             totalScore += score;
-            scoreView.RefreshScoreText(totalScore);
+            OnScoreIncr?.Invoke(totalScore);
         }
 
         private void OnDestroy()
