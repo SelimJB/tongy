@@ -4,48 +4,49 @@ using UnityEngine;
 
 namespace Pyoro.Scoring
 {
-    public class ScoreManager : MonoBehaviour
-    {
-        public Action<int> OnScoreIncr;
-        public Action<int, Vector3> OnShootScoreIncr;
-        
-        private int totalScore = 0;
-        private Shooter shooter;
+	public class ScoreManager : MonoBehaviour
+	{
+		public Action<int> OnScoreIncr;
+		public Action<int, Vector3> OnShootScoreIncr;
 
-        private void Start()
-        {
-            shooter = FindObjectOfType<Shooter>();
-            if (shooter != null)
-                shooter.OnHitTargets += ComputeScore;
-            else
-                Debug.LogWarning("No shooter in the scene");
-        }
+		private int totalScore = 0;
+		private Shooter shooter;
 
-        private void ComputeScore(List<Target> targetsHit)
-        {
-            var value = 0;
-            var multiplier = 1f;
+		private void Start()
+		{
+			shooter = FindObjectOfType<Shooter>();
+			if (shooter != null)
+				shooter.OnHitTargets += ComputeScore;
+			else
+				Debug.LogWarning("No shooter in the scene");
+		}
 
-            foreach (var target in targetsHit)
-            {
-                value += target.ScoreValue;
-                multiplier += target.ScoreMultiplier;
-            }
+		private void ComputeScore(List<Target> targetsHit)
+		{
+			var value = 0;
+			var multiplier = 1f;
 
-            var score = (int)(value * multiplier);
-            OnShootScoreIncr?.Invoke(score, shooter.ImpactPoint);
-            IncreaseScore(score);
-        }
+			foreach (var target in targetsHit)
+			{
+				value += target.ScoreValue;
+				multiplier += target.ScoreMultiplier;
+			}
 
-        public void IncreaseScore(int score)
-        {
-            totalScore += score;
-            OnScoreIncr?.Invoke(totalScore);
-        }
+			var score = (int)(value * multiplier);
+			OnShootScoreIncr?.Invoke(score, shooter.ImpactPoint);
+			IncreaseScore(score);
+		}
 
-        private void OnDestroy()
-        {
-            shooter.OnHitTargets -= ComputeScore;
-        }
-    }
+		public void IncreaseScore(int score)
+		{
+			totalScore += score;
+			OnScoreIncr?.Invoke(totalScore);
+		}
+
+		private void OnDestroy()
+		{
+			if (shooter != null)
+				shooter.OnHitTargets -= ComputeScore;
+		}
+	}
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class LifeManager : MonoBehaviour
 {
 	public event Action OnGameOver;
-	
+
 	private int health;
 	private LifeReceptacle[] receptacles;
-	
+
 	private void Start()
 	{
 		receptacles = FindObjectsOfType<LifeReceptacle>();
