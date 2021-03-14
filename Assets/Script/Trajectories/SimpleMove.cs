@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Pyoro.Trajectory
+namespace Pyoro.Trajectories
 {
 	public class SimpleMove : MonoBehaviour
 	{

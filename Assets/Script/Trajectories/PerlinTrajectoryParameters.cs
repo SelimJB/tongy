@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Pyoro.Trajectory
+namespace Pyoro.Trajectories
 {
 	[System.Serializable]
 	public class PerlinTrajectoryParameters

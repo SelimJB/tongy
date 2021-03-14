@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Pyoro.Trajectory
+namespace Pyoro.Trajectories
 {
 	public abstract class Trajectory : MonoBehaviour
 	{
