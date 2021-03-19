@@ -21,7 +21,7 @@ namespace Pyoro.Scoring
 				Debug.LogWarning("No shooter in the scene");
 		}
 
-		private void ComputeScore(List<Target> targetsHit)
+		private void ComputeScore(List<Target> targetsHit, HitInfo hitInfo)
 		{
 			var value = 0;
 			var multiplier = 1f;
@@ -33,8 +33,11 @@ namespace Pyoro.Scoring
 			}
 
 			var score = (int)(value * multiplier);
-			OnShootScoreIncr?.Invoke(score, shooter.ImpactPoint);
-			IncreaseScore(score);
+			if (score > 0)
+			{
+				OnShootScoreIncr?.Invoke(score, hitInfo.AimedPoint);
+				IncreaseScore(score);
+			}
 		}
 
 		public void IncreaseScore(int score)

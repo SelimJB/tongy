@@ -14,10 +14,10 @@ public class SwarmGenerator : MonoBehaviour
 
 	private IEnumerator GenerateSwarm()
 	{
-		var pos = new Vector2(Random.Range(0f, 1f) > 0.5f ? -28 : 28, Random.Range(-18f, 18f));
+		var pos = new Vector2(Random.Range(0f, 1f) > 0.5f ? -15 : 15, Random.Range(-18f, 18f));
 		var mosquitoSwarm = Instantiate(swarmPrefab, pos, Quaternion.identity);
 		mosquitoSwarm.LifeManager = lifeManager;
-		yield return new WaitForSeconds(10f);
+		yield return new WaitForSeconds(5f);
 		yield return GenerateSwarm();
 	}
 }

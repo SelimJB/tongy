@@ -9,29 +9,20 @@ public class Shooter : MonoBehaviour
 	[SerializeField] private Vector2 origin = Vector2.zero; // FIXME : origin = transform position ? 
 	[SerializeField] private float maxLength = 6f;
 
-	public event Action<List<Target>> OnHitTargets;
+	public event Action<List<Target>, HitInfo> OnHitTargets;
 
 	private Vector2 sweepStartPoint;
 	private Vector2 sweepEndPoint;
 	private Vector2 sweepVector;
-	private Camera mainCamera;
-	private Vector2 impactPoint;
-
 	private Color lineRendererColor;
-	public Vector2 ImpactPoint => impactPoint;
+
 	public Vector2 Origin => origin;
+	public float MaxLength => maxLength;
 
 	private void Start()
 	{
-		mainCamera = Camera.main;
 		lineRenderer.SetPosition(0, origin);
-		OnHitTargets += HitTargets;
 		lineRendererColor = lineRenderer.startColor;
-	}
-
-	private void OnDestroy()
-	{
-		OnHitTargets -= HitTargets;
 	}
 
 	private void Update()
@@ -59,16 +50,16 @@ public class Shooter : MonoBehaviour
 
 	private void OnShootRelease()
 	{
-		impactPoint = origin - sweepVector;
-		var targetsHit = Shoot(impactPoint);
-		StartCoroutine(PlayShootAnimation(impactPoint));
+		var aimPoint = origin - sweepVector;
+		var targetsHit = Shoot(aimPoint);
+		StartCoroutine(PlayShootAnimation(aimPoint));
 		if (targetsHit.Count > 0)
-			OnHitTargets?.Invoke(targetsHit);
+			HitTargets(targetsHit, aimPoint);
 	}
 
-	IEnumerator PlayShootAnimation(Vector3 impactPoint)
+	IEnumerator PlayShootAnimation(Vector3 aimPoint)
 	{
-		lineRenderer.SetPosition(1, impactPoint);
+		lineRenderer.SetPosition(1, aimPoint);
 		lineRenderer.startWidth = 0.1f;
 		lineRenderer.endColor = lineRenderer.startColor = Color.magenta;
 		yield return new WaitForSeconds(0.1f);
@@ -78,9 +69,9 @@ public class Shooter : MonoBehaviour
 		lineRenderer.SetPosition(1, origin);
 	}
 
-	private List<Target> Shoot(Vector2 impactPoint)
+	private List<Target> Shoot(Vector2 aimPoint)
 	{
-		var direction = impactPoint - origin;
+		var direction = aimPoint - origin;
 		var hits = Physics2D.RaycastAll(origin, direction.normalized, direction.magnitude);
 		var targetsHit = new List<Target>();
 
@@ -102,11 +93,29 @@ public class Shooter : MonoBehaviour
 		return targetsHit;
 	}
 
-	private void HitTargets(List<Target> targets)
+	private void HitTargets(List<Target> targets, Vector2 aimPoint)
 	{
+		var power = (aimPoint - origin).magnitude / maxLength;
+		var hitInfo = new HitInfo(origin, aimPoint, power);
+		OnHitTargets?.Invoke(targets, hitInfo);
+
 		foreach (var target in targets)
 		{
-			target.OnHit();
+			target.OnHit(hitInfo);
 		}
+	}
+}
+
+public class HitInfo
+{
+	public Vector3 Origin { get; }
+	public Vector3 AimedPoint { get; }
+	public float Power { get; }
+
+	public HitInfo(Vector3 origin, Vector3 aimedPoint, float power)
+	{
+		Origin = origin;
+		AimedPoint = aimedPoint;
+		Power = power;
 	}
 }
