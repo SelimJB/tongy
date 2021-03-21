@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 8095840470663761732}
   - component: {fileID: 8095840470663761731}
   - component: {fileID: 8095840470663761730}
-  - component: {fileID: 8095840470663761729}
   - component: {fileID: -8354020039737503945}
+  - component: {fileID: -3414946389941387305}
+  - component: {fileID: -4254938939984657748}
   m_Layer: 0
   m_Name: Mosquito_Straight
   m_TagString: Untagged
@@ -148,18 +149,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8095840470663761729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8095840470663761728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70f6d7eb6a1548b99743806a5c0d8a3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8354020039737503945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +163,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3.5
   vibrationAmplitude: 3
+--- !u!114 &-3414946389941387305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8095840470663761728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9031eaba22d4d4eb3cb0822990068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mosquitoWingPrefab: {fileID: 5845144714861496303, guid: 87448f2b8e9b2f343a2ff5babe8789e7,
+    type: 3}
+--- !u!114 &-4254938939984657748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8095840470663761728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70f6d7eb6a1548b99743806a5c0d8a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

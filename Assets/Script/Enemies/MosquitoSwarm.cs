@@ -1,8 +1,6 @@
 ﻿using Pyoro.Trajectories;
 using UnityEngine;
 
-namespace Pyoro.Enemies
-{
 	public class MosquitoSwarm : MonoBehaviour
 	{
 		[SerializeField] int swarmSize = 10;
@@ -35,4 +33,3 @@ namespace Pyoro.Enemies
 			}
 		}
 	}
-}

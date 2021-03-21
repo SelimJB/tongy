@@ -30,21 +30,9 @@ Preset:
     value: 10
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: destination.x
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: destination.y
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: destination.z
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: mosquitoPrefab
     value: 
-    objectReference: {fileID: 8095840470663761729, guid: 68a90c7719c9cce41a717b7cc3c0eae5,
+    objectReference: {fileID: 5576247487594737031, guid: 87eaf550a4b80774088ea646e7aa54cf,
       type: 3}
   - target: {fileID: 0}
     propertyPath: trajectoryParameters.speed

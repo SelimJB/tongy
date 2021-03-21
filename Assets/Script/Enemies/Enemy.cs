@@ -1,8 +1,6 @@
 ﻿using Pyoro.Trajectories;
 using UnityEngine;
 
-namespace Pyoro.Enemies
-{
 	public class Enemy : MonoBehaviour
 	{
 		private LifeReceptacle lifeReceptacle;
@@ -42,4 +40,3 @@ namespace Pyoro.Enemies
 				lifeReceptacle.OnDie -= ChangeCible;
 		}
 	}
-}
