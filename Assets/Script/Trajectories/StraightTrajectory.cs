@@ -20,7 +20,7 @@ namespace Pyoro.Trajectories
 			transform.position = initialPosition;
 		}
 
-		public override void UpdatePosition()
+		protected override void UpdatePosition()
 		{
 			transform.position += (Vector3)Random.insideUnitCircle * Time.deltaTime * vibrationAmplitude
 								+ (destination - transform.position).normalized * Time.deltaTime * speed;

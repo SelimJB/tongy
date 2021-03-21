@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using Pyoro.Trajectories;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class MosquitoWing : MonoBehaviour
+public class MosquitoWing : Target, IMoving
 {
 	[SerializeField] private List<Sprite> wingSprites;
 	[SerializeField] private Tween projectionTween;
@@ -16,6 +17,8 @@ public class MosquitoWing : MonoBehaviour
 	private Vector3 projectionVector;
 	private Vector3 trajectory;
 	private float seed;
+
+	public bool IsActive { get; set; } = true;
 
 	public void Initialize(HitInfo hitInfo)
 	{
@@ -41,9 +44,12 @@ public class MosquitoWing : MonoBehaviour
 
 	void Update()
 	{
-		trajectory += Vector3.down * 0.015f;
-		transform.position = trajectory + (2f * Mathf.PerlinNoise(Time.time * perlinSpeed, seed) - 1) * Vector3.up * perlinAmplitude + (2f * Mathf.PerlinNoise(seed, Time.time * perlinSpeed * 1.5f) - 1) * perlinAmplitude * 1.5f * Vector3.right;
-		transform.rotation = Quaternion.Euler(0, 0, Mathf.PerlinNoise(Time.time * perlinSpeed + seed, 0) * 360);
+		if (IsActive)
+		{
+			trajectory += Vector3.down * 0.015f;
+			transform.position = trajectory + (2f * Mathf.PerlinNoise(Time.time * perlinSpeed, seed) - 1) * Vector3.up * perlinAmplitude + (2f * Mathf.PerlinNoise(seed, Time.time * perlinSpeed * 1.5f) - 1) * perlinAmplitude * 1.5f * Vector3.right;
+			transform.rotation = Quaternion.Euler(0, 0, Mathf.PerlinNoise(Time.time * perlinSpeed + seed, 0) * 360);
+		}
 
 		if (transform.position.y < -30) // TODO : use real value
 			Destroy(gameObject);

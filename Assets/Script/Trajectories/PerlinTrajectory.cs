@@ -27,7 +27,7 @@ namespace Pyoro.Trajectories
 			perlinSpeedVariation = Random.Range(-trajectoryParameters.perlinSpeedVariation, trajectoryParameters.perlinSpeedVariation);
 		}
 
-		public override void UpdatePosition()
+		protected override void UpdatePosition()
 		{
 			float pulsation = 0;
 			if (TrajectoryParameters.easeType == PerlinTrajectoryParameters.EaseType.Cosinus)

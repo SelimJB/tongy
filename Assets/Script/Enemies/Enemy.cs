@@ -1,42 +1,37 @@
 ﻿using Pyoro.Trajectories;
 using UnityEngine;
 
-	public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour
+{
+	private LifeReceptacle lifeReceptacle;
+	protected Trajectory trajectory;
+
+	public LifeReceptacle LifeReceptacle { get => lifeReceptacle; set => lifeReceptacle = value; }
+	protected Vector3 Destination => lifeReceptacle != null ? lifeReceptacle.Position : Vector2.zero;
+
+	protected virtual void Start()
 	{
-		private LifeReceptacle lifeReceptacle;
-		protected Trajectory trajectory;
+		if (lifeReceptacle != null)
+			lifeReceptacle.OnDie += ChangeCible;
 
-		public LifeReceptacle LifeReceptacle { get => lifeReceptacle; set => lifeReceptacle = value; }
-		protected Vector3 Destination => lifeReceptacle != null ? lifeReceptacle.Position : Vector2.zero;
+		trajectory = GetComponent<Trajectory>();
+		trajectory.Initialize(Destination);
+	}
 
-		protected virtual void Start()
+	private void ChangeCible()
+	{
+		lifeReceptacle.OnDie -= ChangeCible;
+		lifeReceptacle = lifeReceptacle.LifeManager.FindNearestActiveLifeReceptacle(transform.position);
+		if (lifeReceptacle != null)
 		{
-			if (lifeReceptacle != null)
-				lifeReceptacle.OnDie += ChangeCible;
-
-			trajectory = GetComponent<Trajectory>();
-			trajectory.Initialize(Destination);
-		}
-
-		protected virtual void Update()
-		{
-			trajectory.UpdatePosition();
-		}
-
-		private void ChangeCible()
-		{
-			lifeReceptacle.OnDie -= ChangeCible;
-			lifeReceptacle = lifeReceptacle.LifeManager.FindNearestActiveLifeReceptacle(transform.position);
-			if (lifeReceptacle != null)
-			{
-				trajectory.ChangeDestination(lifeReceptacle.Position);
-				lifeReceptacle.OnDie += ChangeCible;
-			}
-		}
-
-		protected virtual void OnDestroy()
-		{
-			if (lifeReceptacle != null)
-				lifeReceptacle.OnDie -= ChangeCible;
+			trajectory.ChangeDestination(lifeReceptacle.Position);
+			lifeReceptacle.OnDie += ChangeCible;
 		}
 	}
+
+	protected virtual void OnDestroy()
+	{
+		if (lifeReceptacle != null)
+			lifeReceptacle.OnDie -= ChangeCible;
+	}
+}

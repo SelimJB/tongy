@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8104361917104084157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5792e3d2f4b785c4895e94d1f55a1dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swarmSize: 10
+  swarmSize: 8
   mosquitoPrefab: {fileID: 5576247487594737031, guid: 87eaf550a4b80774088ea646e7aa54cf,
     type: 3}
   trajectoryParameters:

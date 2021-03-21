@@ -35,7 +35,7 @@ namespace Pyoro.Trajectories
 			throw new System.NotImplementedException();
 		}
 
-		public override void UpdatePosition()
+		protected override void UpdatePosition()
 		{
 			// FIXME : replace cos by the same "Pulsation" that we have in the perlin swarm trajectory (add pulsation speed, and pulsation intensity); add the magnitude limiter
 			var ellipseTrajectory = Quaternion.Euler(0, 0, ellipseRotation)
