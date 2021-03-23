@@ -1000,6 +1000,7 @@ MonoBehaviour:
   swarmPrefab: {fileID: 8104361917104084156, guid: a43d9bb7e815991448744000ab05b1e8,
     type: 3}
   lifeManager: {fileID: 504612105}
+  timeBetweenTwoWaves: 10
 --- !u!4 &1407691368
 Transform:
   m_ObjectHideFlags: 0

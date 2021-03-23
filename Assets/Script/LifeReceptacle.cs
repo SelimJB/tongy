@@ -26,6 +26,7 @@ public class LifeReceptacle : MonoBehaviour
 		var enemy = other.gameObject.GetComponent<Enemy>();
 		if (enemy != null)
 		{
+			enemy.Immobilize();
 			Die();
 		}
 	}

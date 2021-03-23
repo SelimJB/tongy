@@ -5,7 +5,8 @@ public class SwarmGenerator : MonoBehaviour
 {
 	[SerializeField] private MosquitoSwarm swarmPrefab;
 	[SerializeField] private LifeManager lifeManager;
-
+	[SerializeField] private float timeBetweenTwoWaves = 5f;
+	
 	void Start()
 	{
 		StartCoroutine(GenerateSwarm());
@@ -17,7 +18,7 @@ public class SwarmGenerator : MonoBehaviour
 		var pos = new Vector2(Random.Range(0f, 1f) > 0.5f ? -15 : 15, Random.Range(-15f, 15f));
 		var mosquitoSwarm = Instantiate(swarmPrefab, pos, Quaternion.identity);
 		mosquitoSwarm.LifeManager = lifeManager;
-		yield return new WaitForSeconds(4f);
+		yield return new WaitForSeconds(timeBetweenTwoWaves);
 		yield return GenerateSwarm();
 	}
 }

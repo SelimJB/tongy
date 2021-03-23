@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Pyoro.Trajectories
@@ -24,6 +25,14 @@ namespace Pyoro.Trajectories
 		{
 			if (IsActive)
 				UpdatePosition();
+		}
+
+		public virtual IEnumerator Immobilize()
+		{
+			// TODO : Improve by adding creating immobility / escape pattern 
+			IsActive = false;
+			yield return new WaitForSeconds(2f);
+			IsActive = true;
 		}
 
 		public bool IsActive { get; set; } = true;

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Pyoro.Trajectories
@@ -74,6 +75,31 @@ namespace Pyoro.Trajectories
 		{
 			base.ChangeDestination(destination);
 			magnitudeLimiter = 1;
+		}
+
+		public override IEnumerator Immobilize()
+		{
+			var initialSpeed = trajectoryParameters.speed;
+			trajectoryParameters.speed = 0f;
+
+			var speedDegression = 0.5f;
+			var delta = initialSpeed / speedDegression;
+
+			while (trajectoryParameters.speed > 0)
+			{
+				trajectoryParameters.speed -= Time.deltaTime * delta;
+			}
+
+			trajectoryParameters.speed = 0f;
+			
+			yield return new WaitForSeconds(2f);
+
+			while (trajectoryParameters.speed < initialSpeed)
+			{
+				trajectoryParameters.speed += Time.deltaTime * delta;
+			}
+
+			trajectoryParameters.speed = initialSpeed;
 		}
 	}
 }

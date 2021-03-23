@@ -1,4 +1,5 @@
-﻿using Pyoro.Trajectories;
+﻿using System.Collections;
+using Pyoro.Trajectories;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -27,6 +28,11 @@ public class Enemy : MonoBehaviour
 			trajectory.ChangeDestination(lifeReceptacle.Position);
 			lifeReceptacle.OnDie += ChangeCible;
 		}
+	}
+
+	public void Immobilize()
+	{
+		StartCoroutine(trajectory.Immobilize());
 	}
 
 	protected virtual void OnDestroy()
