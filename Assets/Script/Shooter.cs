@@ -8,6 +8,7 @@ public class Shooter : MonoBehaviour
 	[SerializeField] private LineRenderer lineRenderer;
 	[SerializeField] private Vector2 origin = Vector2.zero; // FIXME : origin = transform position ? 
 	[SerializeField] private float maxLength = 6f;
+	[SerializeField] private TongueAnimator tongueAnimator;
 
 	public event Action<List<Target>, HitInfo> OnHitTargets;
 
@@ -52,21 +53,19 @@ public class Shooter : MonoBehaviour
 	{
 		var aimPoint = origin - sweepVector;
 		var targetsHit = Shoot(aimPoint);
-		StartCoroutine(PlayShootAnimation(aimPoint));
+		tongueAnimator.PlayShootAnimation(aimPoint);
+		StartCoroutine(ShootReleaseAnimation(aimPoint));
 		if (targetsHit.Count > 0)
 			HitTargets(targetsHit, aimPoint);
 	}
 
-	IEnumerator PlayShootAnimation(Vector3 aimPoint)
+	IEnumerator ShootReleaseAnimation(Vector3 aimPoint)
 	{
-		lineRenderer.SetPosition(1, aimPoint);
-		lineRenderer.startWidth = 0.1f;
-		lineRenderer.endColor = lineRenderer.startColor = Color.magenta;
-		yield return new WaitForSeconds(0.1f);
+		yield return new WaitForSeconds(0.02f);
 		lineRenderer.endColor = lineRenderer.startColor = lineRendererColor;
 		lineRenderer.startWidth = 1f;
 		lineRenderer.widthCurve.keys[0].value = 1f;
-		lineRenderer.SetPosition(1, origin);
+		lineRenderer.SetPosition(1, origin - (Vector2)aimPoint.normalized * 0.7f);
 	}
 
 	private List<Target> Shoot(Vector2 aimPoint)

@@ -44,7 +44,7 @@ public class Tongue : MonoBehaviour
 		var duration = 0.2f; // TODO change
 		var t = 0f;
 
-		while (Vector3.Distance(target.gameObject.transform.position, hitInfo.Origin) > 1f)
+		while (t < duration)
 		{
 			target.gameObject.transform.position += dir * Time.deltaTime / duration;
 			t += Time.deltaTime;
