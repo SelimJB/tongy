@@ -6,6 +6,13 @@ public class Target : MonoBehaviour
 	[SerializeField] int score = 100;
 	[SerializeField] float multiplier = 1;
 
+	public void DestroyCollider()
+	{
+		var collider = GetComponent<Collider2D>();
+		if (collider != null)
+			Destroy(collider);
+	}
+
 	public event Action<HitInfo> onHit;
 	public int ScoreValue => score;
 	public float ScoreMultiplier => multiplier;

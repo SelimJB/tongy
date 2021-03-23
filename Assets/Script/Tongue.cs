@@ -37,7 +37,9 @@ public class Tongue : MonoBehaviour
 
 		var trajectory = target.GetComponent<IMoving>();
 		if (trajectory != null) trajectory.IsActive = false;
-
+		
+		target.DestroyCollider();
+		
 		target.gameObject.transform.position = hitInfo.AimedPoint + (Vector3)Random.insideUnitCircle * tongueTipCircleRadius;
 		var dir = hitInfo.Origin - target.transform.position;
 
