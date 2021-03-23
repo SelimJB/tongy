@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3684959321833952529}
   - component: {fileID: 3684959321833952530}
   m_Layer: 0
-  m_Name: Life
+  m_Name: LifeReceptacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35
 --- !u!50 &3684959321833952529
 Rigidbody2D:
   serializedVersion: 4
@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26117b0b44709db44badbc93fbecca58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeManager: {fileID: 0}
   activeColor: {r: 0.89019614, g: 0.64705884, b: 0.8980393, a: 0}
   inertColor: {r: 0.28622285, g: 0.7193626, b: 0.9056604, a: 1}
   spriteRenderer: {fileID: 3684959321833952620}
