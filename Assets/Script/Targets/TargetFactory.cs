@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Script
+namespace Pyoro.Targets
 {
 	public class TargetFactory : MonoBehaviour
 	{
@@ -55,7 +55,7 @@ namespace Script
 			}
 
 			target.transform.parent = Instance.targetParents[name].transform;
-			
+
 			return target;
 		}
 

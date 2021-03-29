@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Pyoro.Targets;
 using UnityEngine;
 
 public class Shooter : MonoBehaviour

@@ -1,4 +1,5 @@
 ﻿using System;
+using Pyoro.Targets;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]

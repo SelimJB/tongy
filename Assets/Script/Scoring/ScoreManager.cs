@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Pyoro.Targets;
 using UnityEngine;
 
 namespace Pyoro.Scoring
