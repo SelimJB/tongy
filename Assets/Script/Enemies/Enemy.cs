@@ -1,35 +1,44 @@
-﻿using System.Collections;
-using Pyoro.Trajectories;
+﻿using Pyoro.Trajectories;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Target
 {
-	private LifeReceptacle lifeReceptacle;
-	protected Trajectory trajectory;
+	private TrajectoryWithDestination trajectory;
 
-	public LifeReceptacle LifeReceptacle { get => lifeReceptacle; set => lifeReceptacle = value; }
-	protected Vector3 Destination => lifeReceptacle != null ? lifeReceptacle.Position : Vector2.zero;
+	public LifeReceptacle LifeReceptacle { get; set; }
+	private Vector3 Destination => LifeReceptacle != null ? LifeReceptacle.Position : Vector2.zero;
+	protected override Trajectory Trajectory => trajectory;
 
-	protected virtual void Start()
+	protected override void Start()
 	{
-		if (lifeReceptacle != null)
-			lifeReceptacle.OnDie += ChangeCible;
+		base.Start();
 
-		trajectory = GetComponent<Trajectory>();
-		trajectory.Initialize(Destination);
+		if (LifeReceptacle != null)
+			LifeReceptacle.OnDie += ChangeCible;
+
+		Initialise(transform.position);
 	}
 
 	private void ChangeCible()
 	{
-		lifeReceptacle.OnDie -= ChangeCible;
-		lifeReceptacle = lifeReceptacle.LifeManager.FindNearestActiveLifeReceptacle(transform.position);
-		if (lifeReceptacle != null)
+		LifeReceptacle.OnDie -= ChangeCible;
+		LifeReceptacle = LifeReceptacle.LifeManager.FindNearestActiveLifeReceptacle(transform.position);
+		if (LifeReceptacle != null)
 		{
-			trajectory.ChangeDestination(lifeReceptacle.Position);
-			lifeReceptacle.OnDie += ChangeCible;
+			trajectory.ChangeDestination(LifeReceptacle.Position);
+			LifeReceptacle.OnDie += ChangeCible;
 		}
 	}
 
+	public override void Initialise(Vector3 position)
+	{
+		if (trajectory == null)
+			trajectory = GetComponent<TrajectoryWithDestination>();
+
+		transform.position = position;
+		trajectory.Initialize(Destination);
+	}
+	
 	public void Immobilize()
 	{
 		StartCoroutine(trajectory.Immobilize());
@@ -37,7 +46,7 @@ public class Enemy : MonoBehaviour
 
 	protected virtual void OnDestroy()
 	{
-		if (lifeReceptacle != null)
-			lifeReceptacle.OnDie -= ChangeCible;
+		if (LifeReceptacle != null)
+			LifeReceptacle.OnDie -= ChangeCible;
 	}
 }

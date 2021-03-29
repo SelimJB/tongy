@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Pyoro.Trajectories;
+using Script;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -35,11 +35,11 @@ public class Tongue : MonoBehaviour
 	{
 		yield return new WaitForEndOfFrame(); // OnHit must be triggered before the position modification
 
-		var trajectory = target.GetComponent<IMoving>();
+		var trajectory = target.GetComponent<Trajectory>();
 		if (trajectory != null) trajectory.IsActive = false;
-		
-		target.DestroyCollider();
-		
+
+		target.EnableCollider(false);
+
 		target.gameObject.transform.position = hitInfo.AimedPoint + (Vector3)Random.insideUnitCircle * tongueTipCircleRadius;
 		var dir = hitInfo.Origin - target.transform.position;
 
@@ -53,6 +53,6 @@ public class Tongue : MonoBehaviour
 			yield return null;
 		}
 
-		Destroy(target.gameObject);
+		TargetFactory.Release(target);
 	}
 }

@@ -2,22 +2,14 @@ using UnityEngine;
 
 namespace Pyoro.Trajectories
 {
-	public class StraightTrajectory : Trajectory
+	public class StraightTrajectory : TrajectoryWithDestination
 	{
 		[Range(0f, 10f)] [SerializeField] float speed = 3.5f;
 		[Range(0f, 10f)] [SerializeField] float vibrationAmplitude = 3f;
 
-		private Vector3 initialPosition;
-
 		public override void Initialize(Vector3 destination)
 		{
-			initialPosition = transform.position;
 			this.destination = destination;
-		}
-
-		public override void ResetPosition()
-		{
-			transform.position = initialPosition;
 		}
 
 		protected override void UpdatePosition()

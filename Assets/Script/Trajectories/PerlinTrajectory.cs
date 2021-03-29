@@ -3,13 +3,10 @@ using UnityEngine;
 
 namespace Pyoro.Trajectories
 {
-	public class PerlinTrajectory : Trajectory
+	public class PerlinTrajectory : TrajectoryWithDestination
 	{
 		[SerializeField] public PerlinTrajectoryParameters trajectoryParameters;
 
-		public PerlinTrajectoryParameters TrajectoryParameters { get { return trajectoryParameters; } set { trajectoryParameters = value; } }
-
-		private Vector3 initialPosition;
 		private Vector3 vibration;
 		private Vector3 progressionTrajectory;
 		private float perlinNoiseXSeed;
@@ -17,17 +14,18 @@ namespace Pyoro.Trajectories
 		private float magnitudeLimiter = 1f; // Is used when the mosquito has reached his goal, so as not to nomalize mangnitudes which are below 1, so that the attraction effect of the goal is quickly limited
 		private float perlinSpeedVariation;
 
+		public PerlinTrajectoryParameters TrajectoryParameters { get { return trajectoryParameters; } set { trajectoryParameters = value; } }
+
 		public override void Initialize(Vector3 destination)
 		{
 			this.destination = destination;
-			initialPosition = transform.position;
 			progressionTrajectory = transform.position;
 			vibration = Vector3.zero;
 			perlinNoiseXSeed = Random.Range(0f, 10000f);
 			perlinNoiseYSeed = Random.Range(0f, 10000f);
 			perlinSpeedVariation = Random.Range(-trajectoryParameters.perlinSpeedVariation, trajectoryParameters.perlinSpeedVariation);
 		}
-
+		
 		protected override void UpdatePosition()
 		{
 			float pulsation = 0;
@@ -51,12 +49,6 @@ namespace Pyoro.Trajectories
 			transform.position = progressionTrajectory + perlinTrajectory * (pulsation * TrajectoryParameters.pulsationIntensity + (1 - TrajectoryParameters.pulsationIntensity)) + vibration;
 		}
 
-		public override void ResetPosition()
-		{
-			transform.position = initialPosition;
-			progressionTrajectory = initialPosition;
-		}
-
 		public static float EaseIn(float t) => 1 - Mathf.Pow(t, 2);
 
 		public static float EaseOut(float t) => 1 - Mathf.Pow(t - 1, 2);
@@ -73,7 +65,7 @@ namespace Pyoro.Trajectories
 
 		public override void ChangeDestination(Vector3 destination)
 		{
-			base.ChangeDestination(destination);
+			this.destination = destination;
 			magnitudeLimiter = 1;
 		}
 

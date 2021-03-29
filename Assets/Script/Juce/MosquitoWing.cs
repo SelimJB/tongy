@@ -1,57 +1,53 @@
 ﻿using System.Collections.Generic;
 using Pyoro.Trajectories;
+using Script;
+using Script.Juce;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class MosquitoWing : Target, IMoving
+public class MosquitoWing : Target
 {
 	[SerializeField] private List<Sprite> wingSprites;
 	[SerializeField] private Tween projectionTween;
-	[SerializeField] private bool debug = true;
 
+	[SerializeField] private bool debug = true;
 	[SerializeField] private float shootPowerProjectionTweaker = 1f;
 	[SerializeField] private float proximityProjectionTweaker = 1f;
-	[SerializeField] private float perlinSpeed = 0.075f;
-	[SerializeField] private float perlinAmplitude = 0.5f;
 
-	private Vector3 projectionVector;
-	private Vector3 trajectory;
-	private float seed;
+	private WingTrajectory wingTrajectory;
 
-	public bool IsActive { get; set; } = true;
+	protected override Trajectory Trajectory => wingTrajectory;
 
-	public void Initialize(HitInfo hitInfo)
+	public override void Initialise(Vector3 pos, HitInfo hitInfo)
 	{
-		var impactVector = transform.position - hitInfo.Origin;
-		var aimVector = hitInfo.AimedPoint - hitInfo.Origin;
-		var proximityIndex = impactVector.magnitude / aimVector.magnitude; // [0,1] - the closer the target, the closer this value is to 0 
-		var projectionIntensityLimiter = 1 - proximityIndex / 3f;
+		if (wingTrajectory == null)
+			wingTrajectory = GetComponent<WingTrajectory>();
 
-		projectionVector = impactVector.normalized * (hitInfo.Power * shootPowerProjectionTweaker + proximityProjectionTweaker / proximityIndex) * projectionIntensityLimiter;
+		GetComponent<SpriteRenderer>().sprite = wingSprites[Random.Range(0, wingSprites.Count)];
 
-		trajectory = transform.position;
-		seed = Random.value * 1000f;
+		transform.position = pos;
+		transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+
+		wingTrajectory.Initialize();
+		var projectionVector = CalculateProjectionVector(hitInfo);
+		StartCoroutine(projectionTween.Coroutine(x => wingTrajectory.Position += projectionVector * x));
 
 		if (debug)
 			Debug.DrawLine(transform.position, transform.position + projectionVector, Color.cyan, 2);
 	}
 
-	void Start()
+	private Vector3 CalculateProjectionVector(HitInfo hitInfo)
 	{
-		GetComponent<SpriteRenderer>().sprite = wingSprites[Random.Range(0, wingSprites.Count)];
-		StartCoroutine(projectionTween.Coroutine(x => trajectory += projectionVector * x));
+		var impactVector = transform.position - hitInfo.Origin;
+		var aimVector = hitInfo.AimedPoint - hitInfo.Origin;
+		var proximityIndex = impactVector.magnitude / aimVector.magnitude; // [0,1] - the closer the target, the closer this value is to 0 
+		var projectionIntensityLimiter = 1 - proximityIndex / 3f;
+		return impactVector.normalized * (hitInfo.Power * shootPowerProjectionTweaker + proximityProjectionTweaker / proximityIndex) * projectionIntensityLimiter;
 	}
 
-	void Update()
+	private void Update()
 	{
-		if (IsActive)
-		{
-			trajectory += Vector3.down * 0.015f;
-			transform.position = trajectory + (2f * Mathf.PerlinNoise(Time.time * perlinSpeed, seed) - 1) * Vector3.up * perlinAmplitude + (2f * Mathf.PerlinNoise(seed, Time.time * perlinSpeed * 1.5f) - 1) * perlinAmplitude * 1.5f * Vector3.right;
-			transform.rotation = Quaternion.Euler(0, 0, Mathf.PerlinNoise(Time.time * perlinSpeed + seed, 0) * 360);
-		}
-
 		if (transform.position.y < -30) // TODO : use real value
-			Destroy(gameObject);
+			TargetFactory.Release(this);
 	}
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -1982856405216579645}
   - component: {fileID: 5845144714861496303}
   - component: {fileID: -4800112065341707312}
+  - component: {fileID: 505023792151563934}
   m_Layer: 0
   m_Name: Mosquito_Wing
   m_TagString: Untagged
@@ -97,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   multiplier: 0
+  targetName: MosquitoWing
   wingSprites:
   - {fileID: 21300000, guid: 4e62c533c7bf0ce4890ed73f68abbed4, type: 3}
   - {fileID: 21300000, guid: 84ec322bc8d206045a4232b2e3d6338e, type: 3}
@@ -169,3 +171,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 0.9}
   m_EdgeRadius: 0
+--- !u!114 &505023792151563934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3500502878932434070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86faad9f38a344d08713259c96b7d5bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  perlinSpeed: 0.075
+  perlinAmplitude: 0.5

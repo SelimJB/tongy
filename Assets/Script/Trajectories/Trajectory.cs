@@ -3,23 +3,9 @@ using UnityEngine;
 
 namespace Pyoro.Trajectories
 {
-	public interface IMoving
+	public abstract class Trajectory : MonoBehaviour
 	{
-		bool IsActive { get; set; }
-	}
-
-	public abstract class Trajectory : MonoBehaviour, IMoving
-	{
-		protected Vector3 destination;
-
-		public abstract void Initialize(Vector3 destination);
 		protected abstract void UpdatePosition();
-		public abstract void ResetPosition();
-
-		public virtual void ChangeDestination(Vector3 destination)
-		{
-			this.destination = destination;
-		}
 
 		void Update()
 		{
@@ -36,5 +22,18 @@ namespace Pyoro.Trajectories
 		}
 
 		public bool IsActive { get; set; } = true;
+	}
+
+	public abstract class TrajectoryWithDestination : Trajectory
+	{
+		protected Vector3 destination;
+		protected Vector3 Destination => destination;
+
+		public virtual void ChangeDestination(Vector3 destination)
+		{
+			this.destination = destination;
+		}
+
+		public abstract void Initialize(Vector3 destionation);
 	}
 }

@@ -1,35 +1,35 @@
 ﻿using Pyoro.Trajectories;
+using Script;
 using UnityEngine;
 
-	public class MosquitoSwarm : MonoBehaviour
+public class MosquitoSwarm : MonoBehaviour
+{
+	[SerializeField] int swarmSize = 10;
+	[SerializeField] Mosquito mosquitoPrefab;
+	[SerializeField] PerlinTrajectoryParameters trajectoryParameters;
+	public LifeManager LifeManager { get; set; }
+
+	void Start()
 	{
-		[SerializeField] int swarmSize = 10;
-		[SerializeField] Enemy mosquitoPrefab;
-		[SerializeField] PerlinTrajectoryParameters trajectoryParameters;
-		public LifeManager LifeManager { get; set; }
+		if (LifeManager == null)
+			LifeManager = FindObjectOfType<LifeManager>();
 
-		void Start()
+		CreateMosquitoSwarm();
+	}
+
+	private void CreateMosquitoSwarm()
+	{
+		var lifeReceptacle = LifeManager.FindNearestActiveLifeReceptacle(transform.position);
+		if (lifeReceptacle == null)
+			Debug.LogWarning("There is no life receptacle");
+
+		for (var i = 0; i < swarmSize; i++)
 		{
-			if (LifeManager == null)
-				LifeManager = FindObjectOfType<LifeManager>();
-
-			CreateMosquitoSwarm();
-		}
-
-		// TODO : moove into factory
-		private void CreateMosquitoSwarm()
-		{
-			var lifeReceptacle = LifeManager.FindNearestActiveLifeReceptacle(transform.position);
-			if (lifeReceptacle == null)
-				Debug.LogWarning("There is no life receptacle");
-
-			for (var i = 0; i < swarmSize; i++)
-			{
-				var mosquito = Instantiate(mosquitoPrefab, transform, true);
-				var perlinTrajectory = mosquito.GetComponent<PerlinTrajectory>();
-				perlinTrajectory.TrajectoryParameters = trajectoryParameters;
-				mosquito.LifeReceptacle = lifeReceptacle;
-				mosquito.transform.position = transform.position;
-			}
+			var mosquito = TargetFactory.Create(transform.position, mosquitoPrefab.gameObject).GetComponent<Enemy>();
+			var perlinTrajectory = mosquito.GetComponent<PerlinTrajectory>();
+			perlinTrajectory.TrajectoryParameters = trajectoryParameters;
+			mosquito.LifeReceptacle = lifeReceptacle;
+			mosquito.transform.position = transform.position;
 		}
 	}
+}

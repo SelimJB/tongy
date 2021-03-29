@@ -9,6 +9,7 @@ namespace Script.TestScript
 	{
 		[SerializeField] private Shooter shooter;
 		[SerializeField] private GameObject prefab;
+		[SerializeField] private bool resurectWithFactory = true;
 
 		void Start()
 		{
@@ -20,7 +21,10 @@ namespace Script.TestScript
 			foreach (var t in targets)
 			{
 				if (t.GetComponent<Mosquito>())
-					StartCoroutine(Resurect(t.transform.position));
+					if (resurectWithFactory)
+						StartCoroutine(ResurectWithFactory(t.transform.position));
+					else
+						StartCoroutine(Resurect(t.transform.position));
 			}
 		}
 
@@ -28,6 +32,15 @@ namespace Script.TestScript
 		{
 			yield return new WaitForSeconds(1);
 			var n = Instantiate(prefab, pos, Quaternion.identity);
+			var traj = n.GetComponent<PerlinTrajectory>().trajectoryParameters;
+			traj.speed = 0;
+			traj.easeType = PerlinTrajectoryParameters.EaseType.Curve;
+		}
+
+		IEnumerator ResurectWithFactory(Vector3 pos)
+		{
+			yield return new WaitForSeconds(4);
+			var n = TargetFactory.Create(pos, prefab);
 			var traj = n.GetComponent<PerlinTrajectory>().trajectoryParameters;
 			traj.speed = 0;
 			traj.easeType = PerlinTrajectoryParameters.EaseType.Curve;

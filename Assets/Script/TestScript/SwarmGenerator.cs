@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Script;
 using UnityEngine;
 
 public class SwarmGenerator : MonoBehaviour

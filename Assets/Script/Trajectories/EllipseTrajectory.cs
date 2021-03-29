@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Pyoro.Trajectories
 {
-	public class EllipseTrajectory : Trajectory
+	public class EllipseTrajectory : TrajectoryWithDestination
 	{
 		[SerializeField] float speed = 0f;
 		[SerializeField] float vibrationAmplitude = 3f;
@@ -11,11 +11,10 @@ namespace Pyoro.Trajectories
 		[SerializeField] float minEllipseSpeed = 1f;
 		[SerializeField] float maxEllipseSpeed = 5f;
 
-		float ellipseSpeed;
-		float ellipseRotation;
-		Vector2 ellipseDimension;
-		Vector3 progressionTrajectory;
-
+		private float ellipseSpeed;
+		private float ellipseRotation;
+		private Vector2 ellipseDimension;
+		private Vector3 progressionTrajectory;
 
 		public override void Initialize(Vector3 destination)
 		{
@@ -30,10 +29,6 @@ namespace Pyoro.Trajectories
 			ellipseRotation = Random.Range(0f, 90f);
 		}
 
-		public override void ResetPosition()
-		{
-			throw new System.NotImplementedException();
-		}
 
 		protected override void UpdatePosition()
 		{
