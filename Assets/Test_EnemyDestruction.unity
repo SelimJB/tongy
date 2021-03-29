@@ -198,6 +198,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &72185090
@@ -277,6 +283,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &239438090
@@ -356,6 +368,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &290994451
@@ -435,6 +453,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1 &395370310
@@ -448,7 +472,7 @@ GameObject:
   - component: {fileID: 395370311}
   - component: {fileID: 395370312}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -557,6 +581,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &434481249
@@ -636,6 +666,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &705147327
@@ -809,6 +845,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &896034030
@@ -888,6 +930,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &952872416
@@ -967,6 +1015,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1 &1016915437
@@ -1129,6 +1183,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &1069375932
@@ -1208,6 +1268,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1 &1278205998
@@ -1221,7 +1287,7 @@ GameObject:
   - component: {fileID: 1278206000}
   - component: {fileID: 1278205999}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Resurectioner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1333,6 +1399,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!1001 &1762555373
@@ -1412,6 +1484,12 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}
 --- !u!114 &1995769863 stripped
@@ -1503,5 +1581,11 @@ PrefabInstance:
       propertyPath: trajectoryParameters.speed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8634538300415873011, guid: 87eaf550a4b80774088ea646e7aa54cf,
+        type: 3}
+      propertyPath: trajectoryParameters
+      value: 
+      objectReference: {fileID: 11400000, guid: cfd310544a22a0440a21596d1bc3e445,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eaf550a4b80774088ea646e7aa54cf, type: 3}

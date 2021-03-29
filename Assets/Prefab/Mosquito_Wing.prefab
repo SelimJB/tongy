@@ -140,11 +140,9 @@ MonoBehaviour:
       m_RotationOrder: 4
     duration: 0.25
     amplitude: 0.16
-  debug: 1
+  debug: 0
   shootPowerProjectionTweaker: 0.7
   proximityProjectionTweaker: 0.1
-  perlinSpeed: 0.075
-  perlinAmplitude: 0.5
 --- !u!61 &-4800112065341707312
 BoxCollider2D:
   m_ObjectHideFlags: 0

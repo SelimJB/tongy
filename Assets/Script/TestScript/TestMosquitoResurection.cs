@@ -31,19 +31,13 @@ namespace Script.TestScript
 		IEnumerator Resurect(Vector3 pos)
 		{
 			yield return new WaitForSeconds(1);
-			var n = Instantiate(prefab, pos, Quaternion.identity);
-			var traj = n.GetComponent<PerlinTrajectory>().trajectoryParameters;
-			traj.speed = 0;
-			traj.easeType = PerlinTrajectoryParameters.EaseType.Curve;
+			Instantiate(prefab, pos, Quaternion.identity);
 		}
 
 		IEnumerator ResurectWithFactory(Vector3 pos)
 		{
 			yield return new WaitForSeconds(4);
-			var n = TargetFactory.Create(pos, prefab);
-			var traj = n.GetComponent<PerlinTrajectory>().trajectoryParameters;
-			traj.speed = 0;
-			traj.easeType = PerlinTrajectoryParameters.EaseType.Curve;
+			TargetFactory.Create(pos, prefab);
 		}
 	}
 }

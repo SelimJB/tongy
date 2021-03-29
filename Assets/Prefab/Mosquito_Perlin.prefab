@@ -143,21 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1352ab7ed274d14187097a43ef90476, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trajectoryParameters:
-    speed: 5
-    vibrationAmplitude: 1.7
-    pulsationIntensity: 1
-    pulsationSpeed: 1
-    perlinSpeed: 1
-    perlinSpeedVariation: 1
-    perlinAmplitude: 5
-    easeCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    easeType: 0
+  trajectoryParameters: {fileID: 11400000, guid: 299e3f64b967d774d998ed82c1a1d958,
+    type: 2}
 --- !u!114 &-7036686580063365102
 MonoBehaviour:
   m_ObjectHideFlags: 0

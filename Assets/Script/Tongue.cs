@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Shooter))]
 public class Tongue : MonoBehaviour
 {
+	[SerializeField] private float duration = 0.2f;
 	private Shooter shooter;
 
 	private float tongueTipCircleRadius = 0.5f;
@@ -43,7 +44,6 @@ public class Tongue : MonoBehaviour
 		target.gameObject.transform.position = hitInfo.AimedPoint + (Vector3)Random.insideUnitCircle * tongueTipCircleRadius;
 		var dir = hitInfo.Origin - target.transform.position;
 
-		var duration = 0.2f; // TODO change
 		var t = 0f;
 
 		while (t < duration)

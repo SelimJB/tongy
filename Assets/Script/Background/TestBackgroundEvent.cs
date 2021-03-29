@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Pyoro.Background
 {
-	[CreateAssetMenu(menuName = "BackgroundEvent/Test BackgroundEvent")]
+	[CreateAssetMenu(menuName = "Pyoro/Test BackgroundEvent")]
 	public class TestBackgroundEvent : BackgroundEvent
 	{
 		public string message;

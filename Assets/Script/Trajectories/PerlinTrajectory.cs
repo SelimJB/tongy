@@ -13,6 +13,7 @@ namespace Pyoro.Trajectories
 		private float perlinNoiseYSeed;
 		private float magnitudeLimiter = 1f; // Is used when the mosquito has reached his goal, so as not to nomalize mangnitudes which are below 1, so that the attraction effect of the goal is quickly limited
 		private float perlinSpeedVariation;
+		private float speed;
 
 		public PerlinTrajectoryParameters TrajectoryParameters { get { return trajectoryParameters; } set { trajectoryParameters = value; } }
 
@@ -23,37 +24,38 @@ namespace Pyoro.Trajectories
 			vibration = Vector3.zero;
 			perlinNoiseXSeed = Random.Range(0f, 10000f);
 			perlinNoiseYSeed = Random.Range(0f, 10000f);
-			perlinSpeedVariation = Random.Range(-trajectoryParameters.perlinSpeedVariation, trajectoryParameters.perlinSpeedVariation);
+			perlinSpeedVariation = Random.Range(-trajectoryParameters.PerlinSpeedVariation, trajectoryParameters.PerlinSpeedVariation);
+			speed = TrajectoryParameters.Speed;
 		}
-		
+
 		protected override void UpdatePosition()
 		{
 			float pulsation = 0;
-			if (TrajectoryParameters.easeType == PerlinTrajectoryParameters.EaseType.Cosinus)
-				pulsation = (Mathf.Cos(Time.fixedTime * (Mathf.PI * 2) * (1 / TrajectoryParameters.pulsationSpeed)) + 1) / 2;
-			else if (TrajectoryParameters.easeType == PerlinTrajectoryParameters.EaseType.Function)
-				pulsation = Ease(Time.fixedTime, TrajectoryParameters.pulsationSpeed);
-			else if (TrajectoryParameters.easeType == PerlinTrajectoryParameters.EaseType.Curve)
-				pulsation = TrajectoryParameters.easeCurve.Evaluate((Time.fixedTime % TrajectoryParameters.pulsationSpeed) / TrajectoryParameters.pulsationSpeed);
+			if (TrajectoryParameters.Ease == PerlinTrajectoryParameters.EaseType.Cosinus)
+				pulsation = (Mathf.Cos(Time.fixedTime * (Mathf.PI * 2) * (1 / TrajectoryParameters.PulsationSpeed)) + 1) / 2;
+			else if (TrajectoryParameters.Ease == PerlinTrajectoryParameters.EaseType.Function)
+				pulsation = Ease(Time.fixedTime, TrajectoryParameters.PulsationSpeed);
+			else if (TrajectoryParameters.Ease == PerlinTrajectoryParameters.EaseType.Curve)
+				pulsation = TrajectoryParameters.EaseCurve.Evaluate((Time.fixedTime % TrajectoryParameters.PulsationSpeed) / TrajectoryParameters.PulsationSpeed);
 
-			var perlinTrajectory = (Mathf.PerlinNoise(Time.time * (TrajectoryParameters.perlinSpeed + perlinSpeedVariation) + perlinNoiseXSeed, 0) - 0.5f) * TrajectoryParameters.perlinAmplitude * Vector3.up
-									+ (Mathf.PerlinNoise(0, Time.time * (TrajectoryParameters.perlinSpeed + perlinSpeedVariation) + perlinNoiseYSeed) - 0.5f) * TrajectoryParameters.perlinAmplitude * Vector3.right;
+			var perlinTrajectory = (Mathf.PerlinNoise(Time.time * (TrajectoryParameters.PerlinSpeed + perlinSpeedVariation) + perlinNoiseXSeed, 0) - 0.5f) * TrajectoryParameters.PerlinAmplitude * Vector3.up
+									+ (Mathf.PerlinNoise(0, Time.time * (TrajectoryParameters.PerlinSpeed + perlinSpeedVariation) + perlinNoiseYSeed) - 0.5f) * TrajectoryParameters.PerlinAmplitude * Vector3.right;
 
 			if ((destination - transform.position).magnitude < magnitudeLimiter)
 				magnitudeLimiter = (destination - transform.position).magnitude;
 
-			progressionTrajectory += (destination - transform.position).normalized * Time.deltaTime * TrajectoryParameters.speed * magnitudeLimiter;
+			progressionTrajectory += (destination - transform.position).normalized * Time.deltaTime * speed * magnitudeLimiter;
 
-			vibration = (Vector3)Random.insideUnitCircle * Time.deltaTime * TrajectoryParameters.vibrationAmplitude;
+			vibration = (Vector3)Random.insideUnitCircle * Time.deltaTime * TrajectoryParameters.VibrationAmplitude;
 
-			transform.position = progressionTrajectory + perlinTrajectory * (pulsation * TrajectoryParameters.pulsationIntensity + (1 - TrajectoryParameters.pulsationIntensity)) + vibration;
+			transform.position = progressionTrajectory + perlinTrajectory * (pulsation * TrajectoryParameters.PulsationIntensity + (1 - TrajectoryParameters.PulsationIntensity)) + vibration;
 		}
 
-		public static float EaseIn(float t) => 1 - Mathf.Pow(t, 2);
+		private static float EaseIn(float t) => 1 - Mathf.Pow(t, 2);
 
-		public static float EaseOut(float t) => 1 - Mathf.Pow(t - 1, 2);
+		private static float EaseOut(float t) => 1 - Mathf.Pow(t - 1, 2);
 
-		public float Ease(float t, float pulsationSpeed)
+		private float Ease(float t, float pulsationSpeed)
 		{
 			var quotient = (int)(t / (pulsationSpeed / 2f));
 			var remainder = t - quotient * (pulsationSpeed / 2f);
@@ -71,27 +73,27 @@ namespace Pyoro.Trajectories
 
 		public override IEnumerator Immobilize()
 		{
-			var initialSpeed = trajectoryParameters.speed;
-			trajectoryParameters.speed = 0f;
+			var initialSpeed = trajectoryParameters.Speed;
+			speed = initialSpeed;
 
 			var speedDegression = 0.5f;
 			var delta = initialSpeed / speedDegression;
 
-			while (trajectoryParameters.speed > 0)
+			while (speed > 0)
 			{
-				trajectoryParameters.speed -= Time.deltaTime * delta;
+				speed -= Time.deltaTime * delta;
 			}
 
-			trajectoryParameters.speed = 0f;
-			
-			yield return new WaitForSeconds(2f);
+			speed = 0f;
 
-			while (trajectoryParameters.speed < initialSpeed)
+			yield return new WaitForSeconds(6f);
+
+			while (speed < initialSpeed)
 			{
-				trajectoryParameters.speed += Time.deltaTime * delta;
+				speed += Time.deltaTime * delta;
 			}
 
-			trajectoryParameters.speed = initialSpeed;
+			speed = initialSpeed;
 		}
 	}
 }
