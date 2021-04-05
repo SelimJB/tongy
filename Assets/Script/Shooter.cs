@@ -7,7 +7,6 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
 	[SerializeField] private LineRenderer lineRenderer;
-	[SerializeField] private Vector2 origin = Vector2.zero; // FIXME : origin = transform position ? 
 	[SerializeField] private float maxLength = 6f;
 	[SerializeField] private TongueAnimator tongueAnimator;
 
@@ -17,12 +16,14 @@ public class Shooter : MonoBehaviour
 	private Vector2 sweepEndPoint;
 	private Vector2 sweepVector;
 	private Color lineRendererColor;
+	private Vector2 origin;
 
 	public Vector2 Origin => origin;
 	public float MaxLength => maxLength;
 
 	private void Start()
 	{
+		origin = transform.position;
 		lineRenderer.SetPosition(0, origin);
 		lineRendererColor = lineRenderer.startColor;
 	}
