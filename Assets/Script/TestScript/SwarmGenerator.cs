@@ -1,30 +1,37 @@
 ﻿using System.Collections;
-using Pyoro.Targets;
-using Pyoro.Trajectories;
-using Script;
+using TongueShooter.Targets;
+using TongueShooter.Trajectories;
 using UnityEngine;
 
 public class SwarmGenerator : MonoBehaviour
 {
+	private const float INITIAL_DELAY = 0.5f;
+	private const float SPAWN_RANGE = 15f;
+
 	[SerializeField] private LifeManager lifeManager;
 	[SerializeField] private Mosquito mosquitoPrefab;
 	[SerializeField] private float timeBetweenTwoWaves = 5f;
 	[SerializeField] private int swarmSize = 10;
-	[SerializeField] PerlinTrajectoryParameters trajectoryParameters;
+	[SerializeField] private PerlinTrajectoryParameters trajectoryParameters;
 
-	void Start()
+	private void Start()
 	{
 		StartCoroutine(GenerateSwarm());
 	}
 
 	private IEnumerator GenerateSwarm()
 	{
-		yield return new WaitForSeconds(0.5f);
-		var pos = new Vector2(Random.Range(0f, 1f) > 0.5f ? -15 : 15, Random.Range(-15f, 15f));
+		yield return new WaitForSeconds(INITIAL_DELAY);
+		var pos = new Vector2(Random.Range(0f, 1f) > 0.5f ? -SPAWN_RANGE : SPAWN_RANGE, Random.Range(-SPAWN_RANGE, SPAWN_RANGE));
 
 		var lifeReceptacle = lifeManager.FindNearestActiveLifeReceptacle(transform.position);
 		if (lifeReceptacle == null)
-			Debug.LogWarning("There is no life receptacle");
+		{
+			Debug.LogWarning($"[{nameof(SwarmGenerator)}] No active life receptacle found");
+			yield return new WaitForSeconds(timeBetweenTwoWaves);
+			yield return GenerateSwarm();
+			yield break;
+		}
 
 		CreateMosquitoSwarm(pos, mosquitoPrefab, lifeReceptacle, trajectoryParameters, swarmSize);
 

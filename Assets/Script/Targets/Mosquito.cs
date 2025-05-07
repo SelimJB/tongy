@@ -1,7 +1,7 @@
 ﻿using Script;
 using UnityEngine;
 
-namespace Pyoro.Targets
+namespace TongueShooter.Targets
 {
 	[RequireComponent(typeof(Target))]
 	public class Mosquito : MonoBehaviour

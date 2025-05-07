@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Pyoro.Background
+namespace TongueShooter.Background
 {
-	[CreateAssetMenu(menuName = "Pyoro/Test BackgroundEvent")]
+	[CreateAssetMenu(menuName = "TongueShooter/Test BackgroundEvent")]
 	public class TestBackgroundEvent : BackgroundEvent
 	{
 		public string message;

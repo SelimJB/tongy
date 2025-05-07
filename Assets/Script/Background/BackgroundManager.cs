@@ -1,31 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
-using Pyoro.Scoring;
+using TongueShooter.Scoring;
 using UnityEngine;
 
-namespace Pyoro.Background
+// WIP : The background will evolve/change depending on the score
+namespace TongueShooter.Background
 {
 	public class BackgroundManager : MonoBehaviour
 	{
-		[SerializeField] private List<BackgroundEventContainer> backgroundEvents; // TODO : scriptable object
-
+		[SerializeField] private List<BackgroundEventContainer> backgroundEvents;
 		[SerializeField] private ScoreManager scoreManager;
+
+		private int currentEventIndex;
 
 		private void Start()
 		{
 			scoreManager.OnScoreIncr += TriggerEventIfNeeded;
-			// TODO : SORT backgroundEvents list
-			// backgroundEvents.Sort(x => x.scoreThreshold);
+			backgroundEvents.Sort((a, b) => a.scoreThreshold.CompareTo(b.scoreThreshold));
 		}
 
 		private void TriggerEventIfNeeded(int score)
 		{
-			foreach (var backgroundEvent in backgroundEvents)
-				if (backgroundEvent.scoreThreshold <= score && !backgroundEvent.isLaunched)
-				{
-					StartCoroutine(backgroundEvent.backgroundEvent.Trigger());
-					backgroundEvent.isLaunched = true; // TODO REMOVE
-				}
+			// We only check the events that haven't been triggered yet
+			while (currentEventIndex < backgroundEvents.Count &&
+			       backgroundEvents[currentEventIndex].scoreThreshold <= score)
+			{
+				var currentEvent = backgroundEvents[currentEventIndex];
+				StartCoroutine(currentEvent.backgroundEvent.Trigger());
+				currentEventIndex++;
+			}
 		}
 
 		private void OnDestroy()
@@ -39,6 +42,5 @@ namespace Pyoro.Background
 	{
 		[SerializeField] public BackgroundEvent backgroundEvent;
 		[SerializeField] public int scoreThreshold;
-		public bool isLaunched; // TODO : Better system, should not iterate on all the list on each score incr
 	}
 }

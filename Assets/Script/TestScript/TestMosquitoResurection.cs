@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Pyoro.Targets;
-using Pyoro.Trajectories;
+using TongueShooter.Targets;
+using TongueShooter.Trajectories;
 using UnityEngine;
 
 namespace Script.TestScript

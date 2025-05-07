@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Pyoro.Scoring
+namespace TongueShooter.Scoring
 {
 	public class ScoreGainPopup : MonoBehaviour
 	{

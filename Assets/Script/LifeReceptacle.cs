@@ -1,5 +1,5 @@
 ﻿using System;
-using Pyoro.Targets;
+using TongueShooter.Targets;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]

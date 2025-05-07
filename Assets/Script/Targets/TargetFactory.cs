@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Pyoro.Targets
+namespace TongueShooter.Targets
 {
 	public class TargetFactory : MonoBehaviour
 	{

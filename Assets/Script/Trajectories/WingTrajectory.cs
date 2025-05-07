@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Pyoro.Trajectories
+namespace TongueShooter.Trajectories
 {
 	public class WingTrajectory : Trajectory
 	{

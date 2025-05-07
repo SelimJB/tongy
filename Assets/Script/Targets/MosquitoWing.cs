@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
-using Pyoro.Trajectories;
-using Script;
+using TongueShooter.Trajectories;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Pyoro.Targets
+namespace TongueShooter.Targets
 {
 	public class MosquitoWing : Target
 	{
+		private const float Y_POSITION_LIMIT = -30f;
+		private const float PROJECTION_INTENSITY_DIVISOR = 3f;
+
 		[SerializeField] private List<Sprite> wingSprites;
 		[SerializeField] private Tween projectionTween;
-
-		[SerializeField] private bool debug = true;
 		[SerializeField] private float shootPowerProjectionTweaker = 1f;
 		[SerializeField] private float proximityProjectionTweaker = 1f;
 
@@ -33,22 +33,24 @@ namespace Pyoro.Targets
 			var projectionVector = CalculateProjectionVector(hitInfo);
 			StartCoroutine(projectionTween.Coroutine(x => wingTrajectory.Position += projectionVector * x));
 
-			if (debug)
-				Debug.DrawLine(transform.position, transform.position + projectionVector, Color.cyan, 2);
+#if UNITY_EDITOR
+			Debug.DrawLine(transform.position, transform.position + projectionVector, Color.cyan, 2);
+#endif
 		}
 
 		private Vector3 CalculateProjectionVector(HitInfo hitInfo)
 		{
 			var impactVector = transform.position - hitInfo.Origin;
 			var aimVector = hitInfo.AimedPoint - hitInfo.Origin;
-			var proximityIndex = impactVector.magnitude / aimVector.magnitude; // [0,1] - the closer the target, the closer this value is to 0 
-			var projectionIntensityLimiter = 1 - proximityIndex / 3f;
-			return impactVector.normalized * (hitInfo.Power * shootPowerProjectionTweaker + proximityProjectionTweaker / proximityIndex) * projectionIntensityLimiter;
+			var proximityIndex = impactVector.magnitude / aimVector.magnitude;
+			var projectionIntensityLimiter = 1 - proximityIndex / PROJECTION_INTENSITY_DIVISOR;
+			return impactVector.normalized * ((hitInfo.Power * shootPowerProjectionTweaker + proximityProjectionTweaker / proximityIndex) *
+			                                  projectionIntensityLimiter);
 		}
 
 		private void Update()
 		{
-			if (transform.position.y < -30) // TODO : use real value
+			if (transform.position.y < Y_POSITION_LIMIT)
 				TargetFactory.Release(this);
 		}
 	}

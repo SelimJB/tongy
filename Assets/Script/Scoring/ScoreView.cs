@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Pyoro.Scoring
+namespace TongueShooter.Scoring
 {
 	public class ScoreView : MonoBehaviour
 	{

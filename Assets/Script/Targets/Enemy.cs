@@ -1,7 +1,7 @@
-﻿using Pyoro.Trajectories;
+﻿using TongueShooter.Trajectories;
 using UnityEngine;
 
-namespace Pyoro.Targets
+namespace TongueShooter.Targets
 {
 	public class Enemy : Target
 	{

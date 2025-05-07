@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Pyoro.Scoring
+namespace TongueShooter.Scoring
 {
 	// FIXME : pooling
 	public class ScoreGainPopupCreator : MonoBehaviour

@@ -1,8 +1,8 @@
 ﻿using System;
-using Pyoro.Trajectories;
+using TongueShooter.Trajectories;
 using UnityEngine;
 
-namespace Pyoro.Targets
+namespace TongueShooter.Targets
 {
 	public class Target : MonoBehaviour
 	{

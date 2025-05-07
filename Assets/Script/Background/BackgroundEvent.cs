@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Pyoro.Background
+namespace TongueShooter.Background
 {
 	public abstract class BackgroundEvent : ScriptableObject
 	{

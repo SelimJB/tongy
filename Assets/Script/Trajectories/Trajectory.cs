@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Pyoro.Trajectories
+namespace TongueShooter.Trajectories
 {
 	public abstract class Trajectory : MonoBehaviour
 	{

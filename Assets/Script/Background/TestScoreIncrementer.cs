@@ -1,7 +1,7 @@
-﻿using Pyoro.Scoring;
+﻿using TongueShooter.Scoring;
 using UnityEngine;
 
-namespace Pyoro.Background
+namespace TongueShooter.Background
 {
 	public class TestScoreIncrementer : MonoBehaviour
 	{

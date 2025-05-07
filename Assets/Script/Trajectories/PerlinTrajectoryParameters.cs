@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Pyoro.Trajectories
+namespace TongueShooter.Trajectories
 {
-	[CreateAssetMenu(menuName = "Pyoro/PrelinTrajectoryParameters")]
+	[CreateAssetMenu(menuName = "TongueShooter/PrelinTrajectoryParameters")]
 	public class PerlinTrajectoryParameters : ScriptableObject
 	{
 		[Range(0f, 10f)] [SerializeField] private float speed = 5f;

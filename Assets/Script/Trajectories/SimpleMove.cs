@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Pyoro.Trajectories
+namespace TongueShooter.Trajectories
 {
 	public class SimpleMove : MonoBehaviour
 	{
